@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POPSY ADONIS TV — EKSU Party Central & Ticket Sales</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandDark: '#0B0F19',
+                        brandSurface: '#111827',
+                        brandCard: '#1F2937',
+                        brandBorder: '#374151',
+                        brandCream: '#EAE6DF',
+                        brandPink: '#FF4D6D',
+                        brandPinkHover: '#E63946',
+                        whatsapp: '#25D366'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #0B0F19; color: #F9FAFB; font-family: 'Inter', sans-serif; }
+        .glass-nav { background: rgba(11, 15, 25, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+        .card-hover { transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1); }
+        .card-hover:hover { transform: translateY(-6px); border-color: #FF4D6D; box-shadow: 0 12px 35px -10px rgba(255, 77, 109, 0.3); }
+    </style>
+</head>
+<body class="bg-brandDark text-gray-100 antialiased selection:bg-brandPink selection:text-white">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full z-40 glass-nav border-b border-brandBorder/50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-brandCream rounded-xl flex items-center justify-center shadow-lg">
+                    <svg class="w-6 h-6" viewBox="0 0 100 100" fill="none">
+                        <path d="M50 12C33.4 12 20 25.4 20 44V73C20 76.5 24 79 27 76.5C30 74 34 74 37 76.5C40 79 44 79 47 76.5C50 74 54 74 57 76.5C60 79 64 79 67 76.5C70 74 74 74 77 76.5C80 79 84 76.5 84 73V44C84 25.4 70.6 12 50 12Z" fill="#111827"/>
+                        <circle cx="41" cy="38" r="3" fill="#EAE6DF"/>
+                        <circle cx="61" cy="38" r="7.5" fill="#EAE6DF"/>
+                        <path d="M44 54C44 64 56 64 56 54V53H44V54Z" fill="#FF4D6D"/>
+                    </svg>
+                </div>
+                <h1 class="font-heading font-extrabold text-lg text-white">POPSY <span class="text-brandPink">ADONIS</span></h1>
+            </a>
+            <nav class="hidden md:flex items-center gap-7 font-medium text-sm text-gray-300">
+                <a href="index.html" class="hover:text-brandPink">Home</a>
+                <a href="parties.html" class="text-brandPink font-bold">Party Tickets</a>
+                <a href="advertise.html" class="hover:text-brandPink">Advertise</a>
+            </nav>
+            <a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20want%20to%20buy%20party%20tickets" target="_blank" class="bg-brandPink hover:bg-brandPinkHover text-white text-xs font-bold px-5 py-2.5 rounded-full shadow-lg">
+                Buy Tickets Now
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Party Content -->
+    <main class="pt-28 pb-20">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14">
+                <span class="inline-block bg-red-600/20 text-red-400 border border-red-500/30 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-3 animate-pulse">
+                    🔥 Tickets Selling Fast!
+                </span>
+                <h1 class="font-heading text-4xl sm:text-6xl font-extrabold text-white mb-4">EKSU Party Central</h1>
+                <p class="text-gray-300 max-w-2xl mx-auto text-sm sm:text-base">
+                    Organizing the wildest, most anticipated student raves, poolside jams, and club takeovers in Ekiti State University. Don't get locked out at the gate!
+                </p>
+            </div>
+
+            <!-- Active Party Ticket Card -->
+            <div class="bg-brandCard border border-brandPink p-8 rounded-3xl mb-12 card-hover">
+                <div class="grid md:grid-cols-12 gap-8 items-center">
+                    <div class="md:col-span-7 space-y-4">
+                        <span class="bg-brandPink text-white text-[11px] font-extrabold px-3 py-1 rounded-full uppercase">Official Main Event</span>
+                        <h2 class="font-heading text-3xl font-extrabold text-white">THE UNTAMED EKSU NIGHT RAVE</h2>
+                        <p class="text-gray-300 text-sm leading-relaxed">
+                            Featuring top celebrity DJs, hypemen, live performances, free shot bars, and 100% premium vibes.
+                        </p>
+                        <div class="space-y-2 text-xs text-gray-300 pt-2">
+                            <div><i data-lucide="map-pin" class="inline w-4 h-4 text-brandPink"></i> <strong>Location:</strong> Premium Venue, Ado-Ekiti</div>
+                            <div><i data-lucide="clock" class="inline w-4 h-4 text-emerald-400"></i> <strong>Time:</strong> 9:00 PM Till Dawn</div>
+                        </div>
+                    </div>
+                    <div class="md:col-span-5 text-center bg-brandSurface p-6 rounded-2xl border border-brandBorder">
+                        <div class="text-xs uppercase font-bold text-gray-400 mb-1">Pass Price</div>
+                        <div class="text-3xl font-extrabold text-brandPink mb-4">Regular & VIP Available</div>
+                        <a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20want%20to%20reserve%20my%20ticket%20for%20the%20Night%20Rave" target="_blank" class="w-full inline-flex items-center justify-center gap-2 bg-whatsapp hover:bg-emerald-600 text-white font-bold text-sm px-6 py-3.5 rounded-xl transition-all">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                            <span>Reserve Ticket via WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VIP Lounge & Table Booking -->
+            <div class="bg-brandSurface border border-brandBorder p-8 rounded-3xl">
+                <h3 class="font-heading text-2xl font-bold text-white mb-4">VIP Table & Bottle Service</h3>
+                <p class="text-gray-300 text-sm mb-6">Want dedicated seating, premium bottles, and security escort for your crew? Book directly with Popsy Adonis.</p>
+                <a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20want%20to%20book%20a%20VIP%20Table" target="_blank" class="inline-flex items-center gap-2 bg-brandCard hover:bg-gray-800 text-white border border-brandBorder px-6 py-3 rounded-xl font-semibold text-sm">
+                    <i data-lucide="crown" class="w-4 h-4 text-yellow-400"></i>
+                    <span>Inquire VIP Table Pricing</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-brandSurface border-t border-brandBorder/60 py-10">
+        <div class="max-w-6xl mx-auto px-4 text-center sm:text-left flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p class="text-xs text-gray-500">&copy; POPSY ADONIS TV. All Rights Reserved.</p>
+            <a href="index.html" class="text-xs text-brandPink hover:underline">Back to Homepage &rarr;</a>
+        </div>
+    </footer>
+    <script>lucide.createIcons();</script>
+</body>
+</html>
