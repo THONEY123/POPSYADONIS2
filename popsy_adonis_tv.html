@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POPSY ADONIS TV — Your Best Assured Cure to Boredom</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandDark: '#0B0F19',
+                        brandSurface: '#111827',
+                        brandCard: '#1F2937',
+                        brandBorder: '#374151',
+                        brandCream: '#EAE6DF',
+                        brandPink: '#FF4D6D',
+                        brandPinkHover: '#E63946',
+                        whatsapp: '#25D366'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0B0F19;
+            color: #F9FAFB;
+            font-family: 'Inter', sans-serif;
+        }
+        .text-glow {
+            text-shadow: 0 0 20px rgba(255, 77, 109, 0.35);
+        }
+        .glass-nav {
+            background: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            border-color: #FF4D6D;
+            box-shadow: 0 10px 30px -10px rgba(255, 77, 109, 0.25);
+        }
+    </style>
+</head>
+<body class="bg-brandDark text-gray-100 antialiased selection:bg-brandPink selection:text-white">
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-brandPink text-white px-5 py-3 rounded-full font-medium shadow-2xl flex items-center gap-2 transition-all duration-300 opacity-0 pointer-events-none translate-y-4">
+        <i data-lucide="check-circle" class="w-5 h-5"></i>
+        <span id="toast-message">WhatsApp number copied!</span>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 left-0 w-full z-40 glass-nav border-b border-brandBorder/50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-11 h-11 bg-brandCream rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform border border-white/20">
+                    <!-- SVG Ghost Matching Popsy Adonis Logo -->
+                    <svg class="w-7 h-7" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Ghost Body -->
+                        <path d="M50 15C33.4315 15 20 28.4315 20 45V75C20 78.5 24 81 27 78.5C30 76 34 76 37 78.5C40 81 44 81 47 78.5C50 76 54 76 57 78.5C60 81 64 81 67 78.5C70 76 74 76 77 78.5C80 81 84 78.5 84 75V45C84 28.4315 70.5685 15 50 15Z" fill="#111827"/>
+                        <!-- Ghost Left Arm -->
+                        <path d="M22 45C16 42 12 48 15 53C18 58 24 55 22 45Z" fill="#111827"/>
+                        <!-- Ghost Right Arm -->
+                        <path d="M78 45C84 42 88 48 85 53C82 58 76 55 78 45Z" fill="#111827"/>
+                        <!-- Left Eye (Wink/Dot) -->
+                        <circle cx="40" cy="42" r="3.5" fill="#EAE6DF"/>
+                        <!-- Right Eye (Big Pupil) -->
+                        <circle cx="60" cy="42" r="6" fill="#EAE6DF"/>
+                        <circle cx="60" cy="42" r="2.5" fill="#111827"/>
+                        <!-- Tongue Out Mouth -->
+                        <path d="M42 54C42 54 46 58 50 58C54 58 58 54 58 54" stroke="#EAE6DF" stroke-width="2.5" stroke-linecap="round"/>
+                        <path d="M47 57C47 62 53 62 53 57V56H47V57Z" fill="#FF4D6D"/>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="font-heading font-extrabold text-lg sm:text-xl tracking-tight leading-none text-white">
+                        POPSY <span class="text-brandPink">ADONIS</span>
+                    </h1>
+                    <span class="text-[10px] tracking-wider uppercase text-gray-400 font-semibold">WhatsApp TV</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-gray-300">
+                <a href="#home" class="hover:text-brandPink transition-colors">Home</a>
+                <a href="#about" class="hover:text-brandPink transition-colors">About</a>
+                <a href="#features" class="hover:text-brandPink transition-colors">Content</a>
+                <a href="#advertise" class="hover:text-brandPink transition-colors">Ad Plugs</a>
+                <a href="#contact" class="hover:text-brandPink transition-colors">Contact</a>
+            </nav>
+
+            <!-- Navbar CTA Button -->
+            <div class="flex items-center gap-3">
+                <a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20please%20save%20my%20contact" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 bg-whatsapp hover:bg-emerald-600 text-white font-semibold text-sm px-5 py-2.5 rounded-full shadow-lg shadow-emerald-900/30 transition-all hover:scale-105">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                    <span>Join TV</span>
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button id="menu-btn" class="md:hidden text-gray-300 hover:text-white focus:outline-none p-2" aria-label="Toggle Menu">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brandSurface border-b border-brandBorder px-4 pt-3 pb-6 space-y-3">
+            <a href="#home" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brandCard">Home</a>
+            <a href="#about" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brandCard">About</a>
+            <a href="#features" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brandCard">Content</a>
+            <a href="#advertise" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brandCard">Ad Plugs</a>
+            <a href="#contact" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brandCard">Contact</a>
+            <a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20please%20save%20my%20contact" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 bg-whatsapp text-white font-semibold text-sm px-5 py-3 rounded-xl w-full mt-4">
+                <i data-lucide="message-circle" class="w-5 h-5"></i>
+                <span>Join WhatsApp TV</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content Wrapper -->
+    <main class="pt-24">
+
+        <!-- Hero Section -->
+        <section id="home" class="relative py-16 md:py-28 overflow-hidden">
+            <!-- Background Glows -->
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brandPink/15 rounded-full blur-[120px] pointer-events-none"></div>
+            <div class="absolute bottom-10 right-10 w-72 h-72 bg-emerald-500/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                
+                <!-- Status Badge -->
+                <div class="inline-flex items-center gap-2 bg-brandCard border border-brandBorder px-4 py-1.5 rounded-full text-xs sm:text-sm text-gray-300 mb-8 shadow-sm">
+                    <span class="w-2.5 h-2.5 rounded-full bg-whatsapp animate-pulse"></span>
+                    <span class="font-medium">WhatsApp TV • Daily Entertainment Hub</span>
+                </div>
+
+                <!-- Main Hero Headline -->
+                <h1 class="font-heading font-extrabold text-4xl sm:text-6xl md:text-7xl tracking-tight leading-none text-white mb-6">
+                    POPSY <span class="text-brandPink text-glow">ADONIS</span>
+                </h1>
+
+                <!-- Tagline Subtitle -->
+                <p class="text-xl sm:text-2xl font-semibold text-brandCream mb-4 max-w-2xl mx-auto italic">
+                    "Your best assured cure to boredom..."
+                </p>
+
+                <p class="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
+                    Daily viral memes, hot trending gists, curated music drops, hilarious status banter, and high-converting brand plugs straight to your WhatsApp status updates.
+                </p>
+
+                <!-- Action Buttons -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+                    <a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20please%20save%20my%20contact" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-whatsapp hover:bg-emerald-600 text-white font-bold text-base px-8 py-4 rounded-2xl shadow-xl shadow-emerald-950/40 hover:scale-105 transition-all">
+                        <i data-lucide="message-circle" class="w-5 h-5"></i>
+                        <span>Join Status Updates</span>
+                    </a>
+                    <a href="#advertise" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-brandCard hover:bg-gray-800 text-gray-200 border border-brandBorder font-semibold text-base px-8 py-4 rounded-2xl transition-all hover:border-gray-500">
+                        <i data-lucide="megaphone" class="w-5 h-5 text-brandPink"></i>
+                        <span>Advertise With Us</span>
+                    </a>
+                </div>
+
+                <!-- Quick Stat Counter Grid -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 pt-8 border-t border-brandBorder/60">
+                    <div class="bg-brandSurface/60 border border-brandBorder p-5 rounded-2xl">
+                        <div class="font-heading font-bold text-2xl sm:text-3xl text-white mb-1">50K+</div>
+                        <div class="text-xs sm:text-sm text-gray-400">Daily Status Views</div>
+                    </div>
+                    <div class="bg-brandSurface/60 border border-brandBorder p-5 rounded-2xl">
+                        <div class="font-heading font-bold text-2xl sm:text-3xl text-brandPink mb-1">100%</div>
+                        <div class="text-xs sm:text-sm text-gray-400">Guaranteed Vibes</div>
+                    </div>
+                    <div class="bg-brandSurface/60 border border-brandBorder p-5 rounded-2xl">
+                        <div class="font-heading font-bold text-2xl sm:text-3xl text-white mb-1">24/7</div>
+                        <div class="text-xs sm:text-sm text-gray-400">Non-stop Content</div>
+                    </div>
+                    <div class="bg-brandSurface/60 border border-brandBorder p-5 rounded-2xl">
+                        <div class="font-heading font-bold text-2xl sm:text-3xl text-emerald-400 mb-1">1-Tap</div>
+                        <div class="text-xs sm:text-sm text-gray-400">Direct WhatsApp Link</div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Features / Content Highlights -->
+        <section id="features" class="py-16 bg-brandSurface/40 border-y border-brandBorder/40">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-xl mx-auto mb-12">
+                    <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white mb-3">What’s On Status Today?</h2>
+                    <p class="text-gray-400 text-sm sm:text-base">Experience non-stop premium entertainment designed to keep you locked in all day.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-6">
+                    <!-- Feature Card 1 -->
+                    <div class="bg-brandCard border border-brandBorder p-8 rounded-3xl card-hover relative overflow-hidden">
+                        <div class="w-14 h-14 bg-brandPink/10 text-brandPink rounded-2xl flex items-center justify-center mb-6">
+                            <i data-lucide="laugh" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-white mb-2">Daily Gists & Memes</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                            Relentless viral content, internet banter, funny videos, and community interactions that guarantee a good laugh every single day.
+                        </p>
+                        <span class="inline-flex items-center gap-1 text-xs font-semibold text-brandPink">
+                            Fresh Posts Hourly <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                        </span>
+                    </div>
+
+                    <!-- Feature Card 2 -->
+                    <div class="bg-brandCard border border-brandBorder p-8 rounded-3xl card-hover relative overflow-hidden">
+                        <div class="w-14 h-14 bg-emerald-500/10 text-emerald-400 rounded-2xl flex items-center justify-center mb-6">
+                            <i data-lucide="music" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-white mb-2">Music & Playlist Drops</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                            Discover trending Afrobeats, street anthems, unseen talent highlights, and handpicked playlists refreshed every week.
+                        </p>
+                        <span class="inline-flex items-center gap-1 text-xs font-semibold text-emerald-400">
+                            Curated Hits <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                        </span>
+                    </div>
+
+                    <!-- Feature Card 3 -->
+                    <div class="bg-brandCard border border-brandBorder p-8 rounded-3xl card-hover relative overflow-hidden">
+                        <div class="w-14 h-14 bg-brandCream/10 text-brandCream rounded-2xl flex items-center justify-center mb-6">
+                            <i data-lucide="trending-up" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-white mb-2">High-Impact Brand Plugs</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                            Place your business, products, or personal brand right in front of thousands of active, engaged, and fast-acting status viewers.
+                        </p>
+                        <span class="inline-flex items-center gap-1 text-xs font-semibold text-brandCream">
+                            Max Engagement <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 relative">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-brandCard/80 border border-brandBorder rounded-3xl p-8 sm:p-12 relative overflow-hidden">
+                    
+                    <div class="grid md:grid-cols-12 gap-8 items-center">
+                        
+                        <!-- Left Logo Box -->
+                        <div class="md:col-span-5 flex flex-col items-center justify-center text-center p-6 bg-brandSurface rounded-2xl border border-brandBorder/50">
+                            <div class="w-24 h-24 bg-brandCream rounded-full flex items-center justify-center shadow-xl mb-4 border-2 border-white/20">
+                                <svg class="w-16 h-16" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M50 15C33.4315 15 20 28.4315 20 45V75C20 78.5 24 81 27 78.5C30 76 34 76 37 78.5C40 81 44 81 47 78.5C50 76 54 76 57 78.5C60 81 64 81 67 78.5C70 76 74 76 77 78.5C80 81 84 78.5 84 75V45C84 28.4315 70.5685 15 50 15Z" fill="#111827"/>
+                                    <path d="M22 45C16 42 12 48 15 53C18 58 24 55 22 45Z" fill="#111827"/>
+                                    <path d="M78 45C84 42 88 48 85 53C82 58 76 55 78 45Z" fill="#111827"/>
+                                    <circle cx="40" cy="42" r="3.5" fill="#EAE6DF"/>
+                                    <circle cx="60" cy="42" r="6" fill="#EAE6DF"/>
+                                    <circle cx="60" cy="42" r="2.5" fill="#111827"/>
+                                    <path d="M42 54C42 54 46 58 50 58C54 58 58 54 58 54" stroke="#EAE6DF" stroke-width="2.5" stroke-linecap="round"/>
+                                    <path d="M47 57C47 62 53 62 53 57V56H47V57Z" fill="#FF4D6D"/>
+                                </svg>
+                            </div>
+                            <h3 class="font-heading font-extrabold text-2xl text-white mb-1">POPSY ADONIS</h3>
+                            <p class="text-xs text-brandPink font-semibold uppercase tracking-widest">WhatsApp Television</p>
+                        </div>
+
+                        <!-- Right Text Content -->
+                        <div class="md:col-span-7 space-y-4">
+                            <h2 class="font-heading text-2xl sm:text-3xl font-bold text-white">
+                                Why Popsy Adonis TV?
+                            </h2>
+                            <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
+                                Popsy Adonis TV was created with one straightforward mission: to deliver relentless, high-quality entertainment directly to your mobile screen. We bridge the gap between trending pop culture, hilarious memes, music discoveries, and vibrant digital lifestyle content.
+                            </p>
+                            <p class="text-gray-400 text-sm leading-relaxed">
+                                Whether you're unwinding after a long day or looking for the next big song drop, Popsy Adonis TV is your guaranteed daily fix for pure positive vibes and active community conversations.
+                            </p>
+                            
+                            <div class="pt-2 flex flex-wrap gap-4">
+                                <div class="flex items-center gap-2 text-xs font-semibold text-gray-300 bg-brandSurface px-3 py-1.5 rounded-lg border border-brandBorder">
+                                    <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Fast Contact Saving
+                                </div>
+                                <div class="flex items-center gap-2 text-xs font-semibold text-gray-300 bg-brandSurface px-3 py-1.5 rounded-lg border border-brandBorder">
+                                    <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Zero Spam
+                                </div>
+                                <div class="flex items-center gap-2 text-xs font-semibold text-gray-300 bg-brandSurface px-3 py-1.5 rounded-lg border border-brandBorder">
+                                    <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> High Conversion Ads
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Advertiser Section -->
+        <section id="advertise" class="py-20 bg-brandSurface/30 border-t border-brandBorder/50">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-2xl mx-auto mb-14">
+                    <span class="text-xs uppercase tracking-widest font-extrabold text-brandPink mb-2 block">Grow Your Business</span>
+                    <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white mb-4">Promote & Advertise With Us</h2>
+                    <p class="text-gray-400 text-sm sm:text-base">
+                        Get direct eyes on your product, event, or service. Our active audience converts quickly and engages deeply with every status post.
+                    </p>
+                </div>
+
+                <div class="grid lg:grid-cols-12 gap-8 items-stretch">
+                    
+                    <!-- Left Packages List -->
+                    <div class="lg:col-span-7 bg-brandCard border border-brandBorder p-8 rounded-3xl flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-heading text-xl font-bold text-white mb-6 flex items-center gap-2">
+                                <i data-lucide="sparkles" class="w-5 h-5 text-brandPink"></i> Promotional Packages Included
+                            </h3>
+
+                            <div class="space-y-4">
+                                <div class="flex items-start gap-4 p-4 rounded-2xl bg-brandSurface/80 border border-brandBorder/60">
+                                    <div class="w-10 h-10 bg-brandPink/10 text-brandPink rounded-xl flex items-center justify-center shrink-0">
+                                        <i data-lucide="image" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-white text-base">Status Image & Video Flyers</h4>
+                                        <p class="text-gray-400 text-xs sm:text-sm mt-0.5">High-definition flyer placements paired with engaging write-ups to boost conversions.</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-4 p-4 rounded-2xl bg-brandSurface/80 border border-brandBorder/60">
+                                    <div class="w-10 h-10 bg-emerald-500/10 text-emerald-400 rounded-xl flex items-center justify-center shrink-0">
+                                        <i data-lucide="link" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-white text-base">Direct Link Drops & Swipes</h4>
+                                        <p class="text-gray-400 text-xs sm:text-sm mt-0.5">Direct WhatsApp group links, website URLs, or social handle referrals with custom CTAs.</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-4 p-4 rounded-2xl bg-brandSurface/80 border border-brandBorder/60">
+                                    <div class="w-10 h-10 bg-brandCream/10 text-brandCream rounded-xl flex items-center justify-center shrink-0">
+                                        <i data-lucide="video" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-white text-base">Product Video Reviews</h4>
+                                        <p class="text-gray-400 text-xs sm:text-sm mt-0.5">Authentic video shoutouts and live unboxing reviews presented by Popsy Adonis.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 pt-6 border-t border-brandBorder flex items-center justify-between text-xs text-gray-400">
+                            <span>Flexible daily, weekly & monthly rates available</span>
+                            <span class="text-brandPink font-semibold">Fast Turnaround</span>
+                        </div>
+                    </div>
+
+                    <!-- Right CTA Box -->
+                    <div id="contact" class="lg:col-span-5 bg-gradient-to-br from-brandCard to-brandSurface border border-brandBorder p-8 rounded-3xl flex flex-col justify-between text-center relative overflow-hidden">
+                        
+                        <div class="space-y-4">
+                            <div class="w-16 h-16 bg-whatsapp/10 text-whatsapp rounded-2xl flex items-center justify-center mx-auto mb-2">
+                                <i data-lucide="phone-call" class="w-8 h-8"></i>
+                            </div>
+                            <h3 class="font-heading text-2xl font-bold text-white">Book an Ad Placement</h3>
+                            <p class="text-gray-400 text-xs sm:text-sm">
+                                Reach out on WhatsApp today to lock in your preferred date and time slot.
+                            </p>
+
+                            <!-- Copy Number Box -->
+                            <div class="bg-brandDark/80 border border-brandBorder p-4 rounded-2xl flex items-center justify-between gap-3 mt-4">
+                                <div class="text-left">
+                                    <span class="text-[10px] uppercase font-bold text-gray-400 block">Official WhatsApp Line</span>
+                                    <span class="font-mono font-bold text-white text-base sm:text-lg">07076401108</span>
+                                </div>
+                                <button onclick="copyNumber()" class="bg-brandCard hover:bg-gray-700 text-brandCream p-2.5 rounded-xl border border-brandBorder transition-all active:scale-95 flex items-center gap-1.5 text-xs font-semibold">
+                                    <i data-lucide="copy" class="w-4 h-4"></i>
+                                    <span>Copy</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 space-y-3">
+                            <a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20want%20to%20inquire%20about%20advertising%20on%20your%20WhatsApp%20TV" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 bg-whatsapp hover:bg-emerald-600 text-white font-bold text-base px-6 py-4 rounded-2xl shadow-lg transition-all hover:scale-[1.02]">
+                                <i data-lucide="message-square" class="w-5 h-5"></i>
+                                <span>Chat to Advertise</span>
+                            </a>
+                            <p class="text-[11px] text-gray-500">Typical response time: Within 10 minutes</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Social Handles Strip -->
+        <section class="py-12 border-t border-brandBorder/40">
+            <div class="max-w-4xl mx-auto px-4 text-center">
+                <h4 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-6">Connect across social media</h4>
+                <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
+                    <a href="https://wa.me/2347076401108" target="_blank" class="flex items-center gap-2 bg-brandCard hover:border-whatsapp text-gray-300 hover:text-white px-4 py-2.5 rounded-xl border border-brandBorder text-xs sm:text-sm font-semibold transition-all">
+                        <i data-lucide="message-circle" class="w-4 h-4 text-whatsapp"></i> @PopsyAdonis
+                    </a>
+                    <a href="#" class="flex items-center gap-2 bg-brandCard hover:border-pink-500 text-gray-300 hover:text-white px-4 py-2.5 rounded-xl border border-brandBorder text-xs sm:text-sm font-semibold transition-all">
+                        <i data-lucide="instagram" class="w-4 h-4 text-pink-500"></i> @PopsyAdonis
+                    </a>
+                    <a href="#" class="flex items-center gap-2 bg-brandCard hover:border-sky-400 text-gray-300 hover:text-white px-4 py-2.5 rounded-xl border border-brandBorder text-xs sm:text-sm font-semibold transition-all">
+                        <i data-lucide="twitter" class="w-4 h-4 text-sky-400"></i> @PopsyAdonis
+                    </a>
+                    <a href="#" class="flex items-center gap-2 bg-brandCard hover:border-red-500 text-gray-300 hover:text-white px-4 py-2.5 rounded-xl border border-brandBorder text-xs sm:text-sm font-semibold transition-all">
+                        <i data-lucide="youtube" class="w-4 h-4 text-red-500"></i> @PopsyAdonis
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-brandSurface border-t border-brandBorder/60 py-10">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+            
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-brandCream rounded-xl flex items-center justify-center">
+                    <svg class="w-5 h-5" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M50 15C33.4315 15 20 28.4315 20 45V75C20 78.5 24 81 27 78.5C30 76 34 76 37 78.5C40 81 44 81 47 78.5C50 76 54 76 57 78.5C70 76 74 76 77 78.5C80 81 84 78.5 84 75V45C84 28.4315 70.5685 15 50 15Z" fill="#111827"/>
+                        <circle cx="40" cy="42" r="3.5" fill="#EAE6DF"/>
+                        <circle cx="60" cy="42" r="6" fill="#EAE6DF"/>
+                        <path d="M47 57C47 62 53 62 53 57V56H47V57Z" fill="#FF4D6D"/>
+                    </svg>
+                </div>
+                <div>
+                    <div class="font-heading font-extrabold text-sm text-white">POPSY ADONIS TV</div>
+                    <div class="text-[11px] text-gray-500">Your best assured cure to boredom...</div>
+                </div>
+            </div>
+
+            <p class="text-xs text-gray-500">
+                &copy; <span id="year"></span> POPSY ADONIS. All Rights Reserved.
+            </p>
+
+            <a href="#home" class="text-xs text-brandPink hover:underline font-medium">Back to Top &uarr;</a>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20please%20save%20my%20contact" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-50 bg-whatsapp text-white p-4 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all flex items-center justify-center border border-white/20" aria-label="Chat on WhatsApp">
+        <i data-lucide="message-circle" class="w-7 h-7"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Set Copyright Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Copy WhatsApp Number Function
+        function copyNumber() {
+            const number = '07076401108';
+            
+            // Clipboard Copy Guard
+            const dummy = document.createElement('input');
+            document.body.appendChild(dummy);
+            dummy.value = number;
+            dummy.select();
+            document.execCommand('copy');
+            document.body.removeChild(dummy);
+
+            // Toast Animation
+            const toast = document.getElementById('toast');
+            toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+            toast.classList.add('opacity-100', 'translate-y-0');
+
+            setTimeout(() => {
+                toast.classList.remove('opacity-100', 'translate-y-0');
+                toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
