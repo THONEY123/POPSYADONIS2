@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POPSY ADONIS TV — Promote & Advertise Your Business</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandDark: '#0B0F19',
+                        brandSurface: '#111827',
+                        brandCard: '#1F2937',
+                        brandBorder: '#374151',
+                        brandCream: '#EAE6DF',
+                        brandPink: '#FF4D6D',
+                        brandPinkHover: '#E63946',
+                        whatsapp: '#25D366'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #0B0F19; color: #F9FAFB; font-family: 'Inter', sans-serif; }
+        .glass-nav { background: rgba(11, 15, 25, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+        .card-hover { transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1); }
+        .card-hover:hover { transform: translateY(-6px); border-color: #25D366; box-shadow: 0 12px 35px -10px rgba(37, 211, 102, 0.25); }
+    </style>
+</head>
+<body class="bg-brandDark text-gray-100 antialiased selection:bg-brandPink selection:text-white">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full z-40 glass-nav border-b border-brandBorder/50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-brandCream rounded-xl flex items-center justify-center shadow-lg">
+                    <svg class="w-6 h-6" viewBox="0 0 100 100" fill="none">
+                        <path d="M50 12C33.4 12 20 25.4 20 44V73C20 76.5 24 79 27 76.5C30 74 34 74 37 76.5C40 79 44 79 47 76.5C50 74 54 74 57 76.5C60 79 64 79 67 76.5C70 74 74 74 77 76.5C80 79 84 76.5 84 73V44C84 25.4 70.6 12 50 12Z" fill="#111827"/>
+                        <circle cx="41" cy="38" r="3" fill="#EAE6DF"/>
+                        <circle cx="61" cy="38" r="7.5" fill="#EAE6DF"/>
+                        <path d="M44 54C44 64 56 64 56 54V53H44V54Z" fill="#FF4D6D"/>
+                    </svg>
+                </div>
+                <h1 class="font-heading font-extrabold text-lg text-white">POPSY <span class="text-brandPink">ADONIS</span></h1>
+            </a>
+            <nav class="hidden md:flex items-center gap-7 font-medium text-sm text-gray-300">
+                <a href="index.html" class="hover:text-brandPink">Home</a>
+                <a href="parties.html" class="hover:text-brandPink">Party Tickets</a>
+                <a href="advertise.html" class="text-emerald-400 font-bold">Advertise</a>
+            </nav>
+            <a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20want%20to%20book%20an%20ad" target="_blank" class="bg-whatsapp hover:bg-emerald-600 text-white text-xs font-bold px-5 py-2.5 rounded-full shadow-lg">
+                Book Ad Now
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Advertise Content -->
+    <main class="pt-28 pb-20">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14">
+                <span class="text-xs font-extrabold uppercase tracking-widest text-emerald-400 block mb-2">High Conversion Plugs</span>
+                <h1 class="font-heading text-4xl sm:text-6xl font-extrabold text-white mb-4">Advertise With Popsy Adonis TV</h1>
+                <p class="text-gray-300 max-w-2xl mx-auto text-sm sm:text-base">
+                    Reach over 50,000+ active EKSU students, party lovers, and fast-acting buyers daily straight on WhatsApp status.
+                </p>
+            </div>
+
+            <!-- Ad Packages Grid -->
+            <div class="grid md:grid-cols-3 gap-6 mb-16">
+                <div class="bg-brandCard border border-brandBorder p-6 rounded-3xl card-hover flex flex-col justify-between">
+                    <div>
+                        <div class="text-xs uppercase font-bold text-gray-400 mb-2">Standard Flyer</div>
+                        <h3 class="font-heading text-xl font-bold text-white mb-2">Single Status Plug</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-4">1x High-Definition Flyer upload paired with a custom caption and swipe-up contact link.</p>
+                    </div>
+                    <a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20want%20Single%20Status%20Plug" target="_blank" class="w-full text-center bg-brandSurface hover:bg-brandDark text-white border border-brandBorder font-bold text-xs py-3 rounded-xl">Book Single Plug</a>
+                </div>
+
+                <div class="bg-brandCard border border-brandPink p-6 rounded-3xl card-hover relative flex flex-col justify-between">
+                    <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brandPink text-white text-[10px] font-extrabold uppercase px-3 py-0.5 rounded-full">Most Popular</span>
+                    <div>
+                        <div class="text-xs uppercase font-bold text-brandPink mb-2">3-Day Campaign</div>
+                        <h3 class="font-heading text-xl font-bold text-white mb-2">Triple Exposure Pack</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-4">3 Consecutive days of flyer uploads, prime evening slots, and direct group link drops.</p>
+                    </div>
+                    <a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20want%20Triple%20Exposure%20Pack" target="_blank" class="w-full text-center bg-brandPink hover:bg-brandPinkHover text-white font-bold text-xs py-3 rounded-xl shadow-lg">Book 3-Day Pack</a>
+                </div>
+
+                <div class="bg-brandCard border border-brandBorder p-6 rounded-3xl card-hover flex flex-col justify-between">
+                    <div>
+                        <div class="text-xs uppercase font-bold text-emerald-400 mb-2">Full VIP Review</div>
+                        <h3 class="font-heading text-xl font-bold text-white mb-2">Video & Shoutout Review</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-4">Live video unboxing/review by Popsy Adonis + pinned status mention for 24 hours.</p>
+                    </div>
+                    <a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20want%20Video%20Shoutout%20Review" target="_blank" class="w-full text-center bg-brandSurface hover:bg-brandDark text-white border border-brandBorder font-bold text-xs py-3 rounded-xl">Book Video Review</a>
+                </div>
+            </div>
+
+            <!-- Contact Box -->
+            <div class="bg-gradient-to-r from-brandSurface to-brandCard border border-brandBorder p-8 rounded-3xl text-center">
+                <h3 class="font-heading text-2xl font-bold text-white mb-2">Need a Custom Advert Plan?</h3>
+                <p class="text-gray-400 text-sm mb-6">Chat with Popsy Adonis directly to discuss weekly or monthly brand retainers.</p>
+                <a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20want%20to%20discuss%20a%20custom%20ad%20retainer" target="_blank" class="inline-flex items-center gap-2 bg-whatsapp hover:bg-emerald-600 text-white font-bold text-sm px-8 py-3.5 rounded-2xl shadow-lg">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>Chat on WhatsApp (07076401108)</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-brandSurface border-t border-brandBorder/60 py-10">
+        <div class="max-w-6xl mx-auto px-4 text-center sm:text-left flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p class="text-xs text-gray-500">&copy; POPSY ADONIS TV. All Rights Reserved.</p>
+            <a href="index.html" class="text-xs text-brandPink hover:underline">Back to Homepage &rarr;</a>
+        </div>
+    </footer>
+    <script>lucide.createIcons();</script>
+</body>
+</html>
