@@ -32,6 +32,20 @@
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
                         heading: ['Plus Jakarta Sans', 'sans-serif']
+                    },
+                    animation: {
+                        'float': 'float 4s ease-in-out infinite',
+                        'pulse-glow': 'pulseGlow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-8px)' },
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { opacity: 1, filter: 'drop-shadow(0 0 15px rgba(255, 77, 109, 0.6))' },
+                            '50%': { opacity: 0.7, filter: 'drop-shadow(0 0 5px rgba(255, 77, 109, 0.2))' },
+                        }
                     }
                 }
             }
@@ -44,7 +58,7 @@
             font-family: 'Inter', sans-serif;
         }
         .text-glow {
-            text-shadow: 0 0 20px rgba(255, 77, 109, 0.35);
+            text-shadow: 0 0 20px rgba(255, 77, 109, 0.4);
         }
         .glass-nav {
             background: rgba(11, 15, 25, 0.85);
@@ -52,12 +66,12 @@
             -webkit-backdrop-filter: blur(12px);
         }
         .card-hover {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .card-hover:hover {
-            transform: translateY(-4px);
+            transform: translateY(-6px);
             border-color: #FF4D6D;
-            box-shadow: 0 10px 30px -10px rgba(255, 77, 109, 0.25);
+            box-shadow: 0 12px 35px -10px rgba(255, 77, 109, 0.3);
         }
     </style>
 </head>
@@ -73,18 +87,37 @@
     <header class="fixed top-0 left-0 w-full z-40 glass-nav border-b border-brandBorder/50">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             
-            <!-- Logo -->
+            <!-- Logo with Floating SVG Ghost -->
             <a href="#" class="flex items-center gap-3 group">
-                <div class="w-11 h-11 bg-brandCream rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform border border-white/20">
-                    <svg class="w-7 h-7" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M50 15C33.4315 15 20 28.4315 20 45V75C20 78.5 24 81 27 78.5C30 76 34 76 37 78.5C40 81 44 81 47 78.5C50 76 54 76 57 78.5C60 81 64 81 67 78.5C70 76 74 76 77 78.5C80 81 84 78.5 84 75V45C84 28.4315 70.5685 15 50 15Z" fill="#111827"/>
-                        <path d="M22 45C16 42 12 48 15 53C18 58 24 55 22 45Z" fill="#111827"/>
-                        <path d="M78 45C84 42 88 48 85 53C82 58 76 55 78 45Z" fill="#111827"/>
-                        <circle cx="40" cy="42" r="3.5" fill="#EAE6DF"/>
-                        <circle cx="60" cy="42" r="6" fill="#EAE6DF"/>
-                        <circle cx="60" cy="42" r="2.5" fill="#111827"/>
-                        <path d="M42 54C42 54 46 58 50 58C54 58 58 54 58 54" stroke="#EAE6DF" stroke-width="2.5" stroke-linecap="round"/>
-                        <path d="M47 57C47 62 53 62 53 57V56H47V57Z" fill="#FF4D6D"/>
+                <div class="w-12 h-12 bg-gradient-to-b from-brandCream via-[#D9D3C7] to-[#C8C1B3] rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform border border-white/30 animate-float">
+                    <svg class="w-8 h-8" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="ghostBodyGrad" x1="50" y1="10" x2="50" y2="85" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#FFFFFF" />
+                                <stop offset="60%" stop-color="#E2DDD5" />
+                                <stop offset="100%" stop-color="#B8B2A6" />
+                            </linearGradient>
+                            <filter id="shadowGlow" x="-10%" y="-10%" width="120%" height="120%">
+                                <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.3"/>
+                            </filter>
+                        </defs>
+                        <!-- Ghost Body Shadow -->
+                        <path d="M50 15C33 15 20 28 20 46V74C20 77.5 24 80 27 77.5C30 75 34 75 37 77.5C40 80 44 80 47 77.5C50 75 54 75 57 77.5C60 80 64 80 67 77.5C70 75 74 75 77 77.5C80 80 84 77.5 84 74V46C84 28 70 15 50 15Z" fill="#111827" opacity="0.15"/>
+                        <!-- Ghost Body -->
+                        <path d="M50 12C33.4 12 20 25.4 20 44V73C20 76.5 24 79 27 76.5C30 74 34 74 37 76.5C40 79 44 79 47 76.5C50 74 54 74 57 76.5C60 79 64 79 67 76.5C70 74 74 74 77 76.5C80 79 84 76.5 84 73V44C84 25.4 70.6 12 50 12Z" fill="url(#ghostBodyGrad)" stroke="#2B2B2B" stroke-width="2.5"/>
+                        <!-- Ghost Left Arm Up -->
+                        <path d="M21 44C13 40 9 47 13 54C17 59 23 54 21 44Z" fill="url(#ghostBodyGrad)" stroke="#2B2B2B" stroke-width="2"/>
+                        <!-- Ghost Right Arm Up -->
+                        <path d="M79 44C87 40 91 47 87 54C83 59 77 54 79 44Z" fill="url(#ghostBodyGrad)" stroke="#2B2B2B" stroke-width="2"/>
+                        <!-- Left Small Wink Eye -->
+                        <circle cx="41" cy="38" r="3" fill="#111827"/>
+                        <!-- Right Big Pupil Eye -->
+                        <circle cx="61" cy="38" r="7.5" fill="#111827"/>
+                        <circle cx="61" cy="38" r="3" fill="#FFFFFF"/>
+                        <!-- Open Smiling Mouth -->
+                        <path d="M37 49C37 49 44 56 50 56C56 56 63 49 63 49" fill="#111827" stroke="#111827" stroke-width="2" stroke-linecap="round"/>
+                        <!-- Big Pink Tongue Out -->
+                        <path d="M44 54C44 64 56 64 56 54V53H44V54Z" fill="#FF4D6D" stroke="#111827" stroke-width="1.5"/>
                     </svg>
                 </div>
                 <div>
@@ -96,9 +129,10 @@
             </a>
 
             <!-- Desktop Nav Links -->
-            <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-gray-300">
+            <nav class="hidden md:flex items-center gap-7 font-medium text-sm text-gray-300">
                 <a href="#home" class="hover:text-brandPink transition-colors">Home</a>
-                <a href="#about" class="hover:text-brandPink transition-colors">About</a>
+                <a href="#parties" class="hover:text-brandPink transition-colors flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-brandPink animate-ping"></span> EKSU Parties</a>
+                <a href="#connects" class="hover:text-brandPink transition-colors">Matchmaking</a>
                 <a href="#features" class="hover:text-brandPink transition-colors">Content</a>
                 <a href="#advertise" class="hover:text-brandPink transition-colors">Ad Plugs</a>
                 <a href="#contact" class="hover:text-brandPink transition-colors">Contact</a>
@@ -121,7 +155,8 @@
         <!-- Mobile Navigation Drawer -->
         <div id="mobile-menu" class="hidden md:hidden bg-brandSurface border-b border-brandBorder px-4 pt-3 pb-6 space-y-3">
             <a href="#home" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brandCard">Home</a>
-            <a href="#about" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brandCard">About</a>
+            <a href="#parties" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-brandPink hover:bg-brandCard">🎉 EKSU Parties (Tickets Fast Selling)</a>
+            <a href="#connects" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brandCard">🔥 Matchmaking & FWB</a>
             <a href="#features" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brandCard">Content</a>
             <a href="#advertise" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brandCard">Ad Plugs</a>
             <a href="#contact" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brandCard">Contact</a>
@@ -144,7 +179,7 @@
                 
                 <div class="inline-flex items-center gap-2 bg-brandCard border border-brandBorder px-4 py-1.5 rounded-full text-xs sm:text-sm text-gray-300 mb-8 shadow-sm">
                     <span class="w-2.5 h-2.5 rounded-full bg-whatsapp animate-pulse"></span>
-                    <span class="font-medium">WhatsApp TV • Daily Entertainment Hub</span>
+                    <span class="font-medium">Ekiti State University • #1 WhatsApp TV & Lifestyle Hub</span>
                 </div>
 
                 <h1 class="font-heading font-extrabold text-4xl sm:text-6xl md:text-7xl tracking-tight leading-none text-white mb-6">
@@ -156,36 +191,155 @@
                 </p>
 
                 <p class="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
-                    Daily viral memes, hot trending gists, curated music drops, hilarious status banter, and high-converting brand plugs straight to your WhatsApp status updates.
+                    The ultimate EKSU nightlife & party hub, fast-selling party tickets, discreet matchmaking & FWB connects, viral memes, and high-converting brand plugs.
                 </p>
 
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
                     <a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20please%20save%20my%20contact" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-whatsapp hover:bg-emerald-600 text-white font-bold text-base px-8 py-4 rounded-2xl shadow-xl shadow-emerald-950/40 hover:scale-105 transition-all">
                         <i class="fa-brands fa-whatsapp text-xl"></i>
-                        <span>Join Status Updates</span>
+                        <span>Join TV Updates</span>
                     </a>
-                    <a href="#advertise" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-brandCard hover:bg-gray-800 text-gray-200 border border-brandBorder font-semibold text-base px-8 py-4 rounded-2xl transition-all hover:border-gray-500">
-                        <i data-lucide="megaphone" class="w-5 h-5 text-brandPink"></i>
-                        <span>Advertise With Us</span>
+                    <a href="#parties" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-brandPink hover:bg-brandPinkHover text-white font-bold text-base px-8 py-4 rounded-2xl transition-all shadow-lg shadow-pink-900/30 hover:scale-105">
+                        <i data-lucide="ticket" class="w-5 h-5"></i>
+                        <span>Buy Party Tickets</span>
                     </a>
                 </div>
 
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 pt-8 border-t border-brandBorder/60">
                     <div class="bg-brandSurface/60 border border-brandBorder p-5 rounded-2xl">
                         <div class="font-heading font-bold text-2xl sm:text-3xl text-white mb-1">50K+</div>
-                        <div class="text-xs sm:text-sm text-gray-400">Daily Status Views</div>
+                        <div class="text-xs sm:text-sm text-gray-400">Daily EKSU Views</div>
                     </div>
                     <div class="bg-brandSurface/60 border border-brandBorder p-5 rounded-2xl">
-                        <div class="font-heading font-bold text-2xl sm:text-3xl text-brandPink mb-1">100%</div>
-                        <div class="text-xs sm:text-sm text-gray-400">Guaranteed Vibes</div>
+                        <div class="font-heading font-bold text-2xl sm:text-3xl text-brandPink mb-1">#1</div>
+                        <div class="text-xs sm:text-sm text-gray-400">Party Host in EKSU</div>
+                    </div>
+                    <div class="bg-brandSurface/60 border border-brandBorder p-5 rounded-2xl">
+                        <div class="font-heading font-bold text-2xl sm:text-3xl text-emerald-400 mb-1">100%</div>
+                        <div class="text-xs sm:text-sm text-gray-400">Discreet Connects</div>
                     </div>
                     <div class="bg-brandSurface/60 border border-brandBorder p-5 rounded-2xl">
                         <div class="font-heading font-bold text-2xl sm:text-3xl text-white mb-1">24/7</div>
-                        <div class="text-xs sm:text-sm text-gray-400">Non-stop Content</div>
+                        <div class="text-xs sm:text-sm text-gray-400">Non-stop Entertainment</div>
                     </div>
-                    <div class="bg-brandSurface/60 border border-brandBorder p-5 rounded-2xl">
-                        <div class="font-heading font-bold text-2xl sm:text-3xl text-emerald-400 mb-1">1-Tap</div>
-                        <div class="text-xs sm:text-sm text-gray-400">Direct WhatsApp Link</div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- EKSU Parties & Ticket Sales Section -->
+        <section id="parties" class="py-20 bg-gradient-to-b from-brandDark via-brandSurface/80 to-brandDark border-t border-brandBorder/50 relative overflow-hidden">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-2xl mx-auto mb-14">
+                    <div class="inline-flex items-center gap-2 bg-brandPink/15 border border-brandPink/40 px-4 py-1.5 rounded-full text-xs font-bold text-brandPink uppercase tracking-widest mb-3 animate-pulse-glow">
+                        <i data-lucide="flame" class="w-4 h-4"></i> Tickets Selling Fast!
+                    </div>
+                    <h2 class="font-heading text-3xl sm:text-5xl font-extrabold text-white mb-4">
+                        The Biggest Parties in EKSU
+                    </h2>
+                    <p class="text-gray-300 text-sm sm:text-base">
+                        Popsy Adonis organizes the most talked-about, wildest, and packed campus rave parties in Ekiti State University. Secure your pass before tickets sell out completely!
+                    </p>
+                </div>
+
+                <div class="grid lg:grid-cols-12 gap-8 items-center">
+                    
+                    <!-- Left Party Flyer / Card -->
+                    <div class="lg:col-span-7 bg-brandCard border border-brandPink/30 p-8 rounded-3xl relative overflow-hidden card-hover">
+                        <div class="absolute top-4 right-4 bg-red-600 text-white font-extrabold text-[11px] uppercase tracking-wider px-3 py-1 rounded-full animate-bounce">
+                            Limited Passes
+                        </div>
+
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-12 h-12 bg-brandPink/15 text-brandPink rounded-2xl flex items-center justify-center">
+                                <i data-lucide="party-popper" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-heading text-2xl font-bold text-white">Next Big EKSU Rave</h3>
+                                <p class="text-xs text-gray-400">Organized exclusively by Popsy Adonis TV</p>
+                            </div>
+                        </div>
+
+                        <ul class="space-y-3 mb-8 text-sm text-gray-300">
+                            <li class="flex items-center gap-3 bg-brandSurface/80 p-3 rounded-xl border border-brandBorder">
+                                <i data-lucide="map-pin" class="w-5 h-5 text-brandPink"></i>
+                                <span><strong>Location:</strong> Premium Venues around EKSU & Ado-Ekiti</span>
+                            </li>
+                            <li class="flex items-center gap-3 bg-brandSurface/80 p-3 rounded-xl border border-brandBorder">
+                                <i data-lucide="music" class="w-5 h-5 text-emerald-400"></i>
+                                <span><strong>Vibe:</strong> Top DJs, Hypemen, Free Drinks & Wild Energy</span>
+                            </li>
+                            <li class="flex items-center gap-3 bg-brandSurface/80 p-3 rounded-xl border border-brandBorder">
+                                <i data-lucide="sparkles" class="w-5 h-5 text-yellow-400"></i>
+                                <span><strong>Crowd:</strong> Baddest babes, cool guys, & campus celebs</span>
+                            </li>
+                        </ul>
+
+                        <a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20want%20to%20buy%20tickets%20for%20the%20upcoming%20EKSU%20party" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-3 bg-brandPink hover:bg-brandPinkHover text-white font-extrabold text-base px-8 py-4 rounded-2xl shadow-xl shadow-pink-950/50 hover:scale-[1.02] transition-all">
+                            <i data-lucide="ticket" class="w-5 h-5"></i>
+                            <span>Reserve Your Ticket on WhatsApp</span>
+                        </a>
+                    </div>
+
+                    <!-- Right Stats / Highlights -->
+                    <div class="lg:col-span-5 space-y-5">
+                        <div class="bg-brandSurface border border-brandBorder p-6 rounded-2xl">
+                            <h4 class="font-heading text-lg font-bold text-white mb-2 flex items-center gap-2">
+                                <i data-lucide="zap" class="w-5 h-5 text-yellow-400"></i> Always Sold Out
+                            </h4>
+                            <p class="text-xs sm:text-sm text-gray-400">
+                                Ticket passes for Popsy Adonis events sell out in record time. Don't wait till gate prices double!
+                            </p>
+                        </div>
+
+                        <div class="bg-brandSurface border border-brandBorder p-6 rounded-2xl">
+                            <h4 class="font-heading text-lg font-bold text-white mb-2 flex items-center gap-2">
+                                <i data-lucide="shield-check" class="w-5 h-5 text-emerald-400"></i> VIP Table Bookings
+                            </h4>
+                            <p class="text-xs sm:text-sm text-gray-400">
+                                Want a dedicated lounge, premium bottles, and bodyguard security? Hit up Popsy directly to lock down your table.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Hookups & FWB Matchmaking Section -->
+        <section id="connects" class="py-20 bg-brandSurface/40 border-t border-brandBorder/40">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="bg-gradient-to-r from-brandCard via-brandSurface to-brandCard border border-brandBorder p-8 sm:p-12 rounded-3xl relative overflow-hidden card-hover">
+                    <div class="grid md:grid-cols-12 gap-8 items-center">
+                        
+                        <div class="md:col-span-8 space-y-4">
+                            <div class="inline-flex items-center gap-2 bg-pink-500/10 text-pink-400 border border-pink-500/30 px-3.5 py-1 rounded-full text-xs font-semibold">
+                                <i data-lucide="heart" class="w-4 h-4 text-pink-400"></i> Matchmaking & Campus Connects
+                            </div>
+                            <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-white">
+                                Hookups, FWB & Private Matchmaking
+                            </h2>
+                            <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
+                                Looking for lowkey campus hookups, no-strings-attached Friends With Benefits (FWB), or private match-ups? Popsy Adonis TV provides a 100% confidential and discreet platform to get linked up with verified campus contacts.
+                            </p>
+                            
+                            <div class="flex flex-wrap gap-3 pt-2 text-xs font-medium text-gray-300">
+                                <span class="bg-brandDark px-3 py-1.5 rounded-lg border border-brandBorder">🔥 100% Confidential</span>
+                                <span class="bg-brandDark px-3 py-1.5 rounded-lg border border-brandBorder">💬 Direct DM Matchmaking</span>
+                                <span class="bg-brandDark px-3 py-1.5 rounded-lg border border-brandBorder">⚡ Active EKSU Campus Base</span>
+                            </div>
+                        </div>
+
+                        <div class="md:col-span-4 text-center">
+                            <a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20want%20to%20inquire%20about%20the%20Matchmaking%2FFWB%20connects" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-pink-600 to-brandPink hover:from-pink-500 hover:to-brandPinkHover text-white font-bold text-base px-6 py-4 rounded-2xl shadow-xl transition-all hover:scale-105">
+                                <i class="fa-brands fa-whatsapp text-xl"></i>
+                                <span>Get Connected Discreetly</span>
+                            </a>
+                        </div>
+
                     </div>
                 </div>
 
@@ -252,16 +406,16 @@
                     
                     <div class="grid md:grid-cols-12 gap-8 items-center">
                         <div class="md:col-span-5 flex flex-col items-center justify-center text-center p-6 bg-brandSurface rounded-2xl border border-brandBorder/50">
-                            <div class="w-24 h-24 bg-brandCream rounded-full flex items-center justify-center shadow-xl mb-4 border-2 border-white/20">
+                            <div class="w-24 h-24 bg-gradient-to-b from-brandCream to-[#C8C1B3] rounded-full flex items-center justify-center shadow-xl mb-4 border-2 border-white/20 animate-float">
                                 <svg class="w-16 h-16" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M50 15C33.4315 15 20 28.4315 20 45V75C20 78.5 24 81 27 78.5C30 76 34 76 37 78.5C40 81 44 81 47 78.5C50 76 54 76 57 78.5C60 81 64 81 67 78.5C70 76 74 76 77 78.5C80 81 84 78.5 84 75V45C84 28.4315 70.5685 15 50 15Z" fill="#111827"/>
-                                    <path d="M22 45C16 42 12 48 15 53C18 58 24 55 22 45Z" fill="#111827"/>
-                                    <path d="M78 45C84 42 88 48 85 53C82 58 76 55 78 45Z" fill="#111827"/>
-                                    <circle cx="40" cy="42" r="3.5" fill="#EAE6DF"/>
-                                    <circle cx="60" cy="42" r="6" fill="#EAE6DF"/>
-                                    <circle cx="60" cy="42" r="2.5" fill="#111827"/>
-                                    <path d="M42 54C42 54 46 58 50 58C54 58 58 54 58 54" stroke="#EAE6DF" stroke-width="2.5" stroke-linecap="round"/>
-                                    <path d="M47 57C47 62 53 62 53 57V56H47V57Z" fill="#FF4D6D"/>
+                                    <path d="M50 12C33.4 12 20 25.4 20 44V73C20 76.5 24 79 27 76.5C30 74 34 74 37 76.5C40 79 44 79 47 76.5C50 74 54 74 57 76.5C60 79 64 79 67 76.5C70 74 74 74 77 76.5C80 79 84 76.5 84 73V44C84 25.4 70.6 12 50 12Z" fill="#F0ECE1" stroke="#2B2B2B" stroke-width="2"/>
+                                    <path d="M21 44C13 40 9 47 13 54C17 59 23 54 21 44Z" fill="#F0ECE1" stroke="#2B2B2B" stroke-width="2"/>
+                                    <path d="M79 44C87 40 91 47 87 54C83 59 77 54 79 44Z" fill="#F0ECE1" stroke="#2B2B2B" stroke-width="2"/>
+                                    <circle cx="41" cy="38" r="3" fill="#111827"/>
+                                    <circle cx="61" cy="38" r="7.5" fill="#111827"/>
+                                    <circle cx="61" cy="38" r="3" fill="#FFFFFF"/>
+                                    <path d="M37 49C37 49 44 56 50 56C56 56 63 49 63 49" stroke="#111827" stroke-width="2"/>
+                                    <path d="M44 54C44 64 56 64 56 54V53H44V54Z" fill="#FF4D6D" stroke="#111827" stroke-width="1.5"/>
                                 </svg>
                             </div>
                             <h3 class="font-heading font-extrabold text-2xl text-white mb-1">POPSY ADONIS</h3>
@@ -273,10 +427,10 @@
                                 Why Popsy Adonis TV?
                             </h2>
                             <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                                Popsy Adonis TV was created with one straightforward mission: to deliver relentless, high-quality entertainment directly to your mobile screen. We bridge the gap between trending pop culture, hilarious memes, music discoveries, and vibrant digital lifestyle content.
+                                Popsy Adonis TV is the #1 entertainment and party engine in EKSU. We bridge the gap between campus nightlife, exclusive party raves, lowkey matchmaking, viral memes, music discoveries, and high-ROI digital advert plugs.
                             </p>
                             <p class="text-gray-400 text-sm leading-relaxed">
-                                Whether you're unwinding after a long day or looking for the next big song drop, Popsy Adonis TV is your guaranteed daily fix for pure positive vibes and active community conversations.
+                                Whether you're trying to grab event tickets before they sell out, find a lowkey connect, or promote your brand to thousands of students, Popsy Adonis TV has you covered.
                             </p>
                             
                             <div class="pt-2 flex flex-wrap gap-4">
@@ -284,7 +438,7 @@
                                     <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Fast Contact Saving
                                 </div>
                                 <div class="flex items-center gap-2 text-xs font-semibold text-gray-300 bg-brandSurface px-3 py-1.5 rounded-lg border border-brandBorder">
-                                    <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Zero Spam
+                                    <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Verified EKSU Connects
                                 </div>
                                 <div class="flex items-center gap-2 text-xs font-semibold text-gray-300 bg-brandSurface px-3 py-1.5 rounded-lg border border-brandBorder">
                                     <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> High Conversion Ads
@@ -400,19 +554,19 @@
             <div class="max-w-5xl mx-auto px-4 text-center">
                 <h4 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-6">Connect across social media</h4>
                 <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
-                    <a href="https://wa.me/2347076401108" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 bg-brandCard hover:border-whatsapp text-gray-300 hover:text-white px-5 py-3 rounded-xl border border-brandBorder text-xs sm:text-sm font-semibold transition-all">
+                    <a href="https://wa.me/2347076401108" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 bg-brandCard hover:border-whatsapp text-gray-300 hover:text-white px-5 py-3 rounded-xl border border-brandBorder text-xs sm:text-sm font-semibold transition-all hover:scale-105">
                         <i class="fa-brands fa-whatsapp text-lg text-whatsapp"></i> WhatsApp
                     </a>
-                    <a href="https://instagram.com/popsyadonis" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 bg-brandCard hover:border-pink-500 text-gray-300 hover:text-white px-5 py-3 rounded-xl border border-brandBorder text-xs sm:text-sm font-semibold transition-all">
+                    <a href="https://instagram.com/popsyadonis" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 bg-brandCard hover:border-pink-500 text-gray-300 hover:text-white px-5 py-3 rounded-xl border border-brandBorder text-xs sm:text-sm font-semibold transition-all hover:scale-105">
                         <i class="fa-brands fa-instagram text-lg text-pink-500"></i> Instagram
                     </a>
-                    <a href="https://tiktok.com/@popsyadonis" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 bg-brandCard hover:border-cyan-400 text-gray-300 hover:text-white px-5 py-3 rounded-xl border border-brandBorder text-xs sm:text-sm font-semibold transition-all">
+                    <a href="https://tiktok.com/@popsyadonis" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 bg-brandCard hover:border-cyan-400 text-gray-300 hover:text-white px-5 py-3 rounded-xl border border-brandBorder text-xs sm:text-sm font-semibold transition-all hover:scale-105">
                         <i class="fa-brands fa-tiktok text-lg text-cyan-400"></i> TikTok
                     </a>
-                    <a href="https://x.com/popsyadonis" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 bg-brandCard hover:border-sky-400 text-gray-300 hover:text-white px-5 py-3 rounded-xl border border-brandBorder text-xs sm:text-sm font-semibold transition-all">
+                    <a href="https://x.com/popsyadonis" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 bg-brandCard hover:border-sky-400 text-gray-300 hover:text-white px-5 py-3 rounded-xl border border-brandBorder text-xs sm:text-sm font-semibold transition-all hover:scale-105">
                         <i class="fa-brands fa-x-twitter text-lg text-sky-400"></i> Twitter / X
                     </a>
-                    <a href="https://facebook.com/popsyadonis" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 bg-brandCard hover:border-blue-500 text-gray-300 hover:text-white px-5 py-3 rounded-xl border border-brandBorder text-xs sm:text-sm font-semibold transition-all">
+                    <a href="https://facebook.com/popsyadonis" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 bg-brandCard hover:border-blue-500 text-gray-300 hover:text-white px-5 py-3 rounded-xl border border-brandBorder text-xs sm:text-sm font-semibold transition-all hover:scale-105">
                         <i class="fa-brands fa-facebook text-lg text-blue-500"></i> Facebook
                     </a>
                 </div>
@@ -428,10 +582,10 @@
             <div class="flex items-center gap-3">
                 <div class="w-8 h-8 bg-brandCream rounded-xl flex items-center justify-center">
                     <svg class="w-5 h-5" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M50 15C33.4315 15 20 28.4315 20 45V75C20 78.5 24 81 27 78.5C30 76 34 76 37 78.5C40 81 44 81 47 78.5C50 76 54 76 77 78.5C80 81 84 78.5 84 75V45C84 28.4315 70.5685 15 50 15Z" fill="#111827"/>
-                        <circle cx="40" cy="42" r="3.5" fill="#EAE6DF"/>
-                        <circle cx="60" cy="42" r="6" fill="#EAE6DF"/>
-                        <path d="M47 57C47 62 53 62 53 57V56H47V57Z" fill="#FF4D6D"/>
+                        <path d="M50 12C33.4 12 20 25.4 20 44V73C20 76.5 24 79 27 76.5C30 74 34 74 37 76.5C40 79 44 79 47 76.5C60 79 64 79 67 76.5C70 74 74 74 77 76.5C80 79 84 76.5 84 73V44C84 25.4 70.6 12 50 12Z" fill="#111827"/>
+                        <circle cx="41" cy="38" r="3" fill="#EAE6DF"/>
+                        <circle cx="61" cy="38" r="7.5" fill="#EAE6DF"/>
+                        <path d="M44 54C44 64 56 64 56 54V53H44V54Z" fill="#FF4D6D"/>
                     </svg>
                 </div>
                 <div>
@@ -440,7 +594,6 @@
                 </div>
             </div>
 
-            <!-- Footer Active Brand Icons -->
             <div class="flex items-center gap-5 text-gray-400">
                 <a href="https://wa.me/2347076401108" target="_blank" rel="noopener noreferrer" class="hover:text-whatsapp transition-colors" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp text-lg"></i></a>
                 <a href="https://instagram.com/popsyadonis" target="_blank" rel="noopener noreferrer" class="hover:text-pink-500 transition-colors" aria-label="Instagram"><i class="fa-brands fa-instagram text-lg"></i></a>
