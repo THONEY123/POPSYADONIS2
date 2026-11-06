@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POPSY ADONIS TV — About | Ekiti State University</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { brandDark: '#0B0F19', brandSurface: '#111827', brandCard: '#1F2937', brandBorder: '#374151', brandCream: '#EAE6DF', brandPink: '#FF4D6D', whatsapp: '#25D366' },
+                    fontFamily: { sans: ['Inter', 'sans-serif'], heading: ['Plus Jakarta Sans', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>body { background-color: #0B0F19; color: #F9FAFB; font-family: 'Inter', sans-serif; } .glass-nav { background: rgba(11, 15, 25, 0.85); backdrop-filter: blur(12px); }</style>
+</head>
+<body class="bg-brandDark text-gray-100 antialiased">
+    <header class="fixed top-0 left-0 w-full z-40 glass-nav border-b border-brandBorder/50">
+        <div class="max-w-6xl mx-auto px-4 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-11 h-11 bg-brandCream rounded-2xl flex items-center justify-center"><svg class="w-7 h-7" viewBox="0 0 100 100" fill="none"><path d="M50 12C33.4 12 20 25.4 20 44V73C20 76.5 24 79 27 76.5C30 74 34 74 37 76.5C40 79 44 79 47 76.5C50 74 54 74 57 76.5C60 79 64 79 67 76.5C70 74 74 74 77 76.5C80 79 84 76.5 84 73V44C84 25.4 70.6 12 50 12Z" fill="#F0ECE1" stroke="#2B2B2B" stroke-width="2"/><circle cx="41" cy="38" r="3" fill="#111827"/><circle cx="61" cy="38" r="7.5" fill="#111827"/><circle cx="61" cy="38" r="3" fill="#FFFFFF"/><path d="M44 54C44 64 56 64 56 54V53H44V54Z" fill="#FF4D6D" stroke="#111827" stroke-width="1.5"/></svg></div>
+                <h1 class="font-heading font-extrabold text-lg text-white">POPSY <span class="text-brandPink">ADONIS</span></h1>
+            </a>
+            <nav class="hidden md:flex items-center gap-6 font-medium text-sm text-gray-300">
+                <a href="index.html" class="hover:text-brandPink">Home</a>
+                <a href="about.html" class="text-brandPink font-bold">About</a>
+                <a href="parties.html" class="hover:text-brandPink">Party Tickets</a>
+                <a href="connects.html" class="hover:text-brandPink">Matchmaking</a>
+                <a href="advertise.html" class="hover:text-brandPink">Advertise</a>
+            </nav>
+            <a href="https://wa.me/2347076401108" target="_blank" class="bg-whatsapp text-white text-xs font-bold px-5 py-2.5 rounded-full">Join TV</a>
+        </div>
+    </header>
+    <main class="pt-28 pb-20 max-w-4xl mx-auto px-4">
+        <h1 class="font-heading text-4xl font-extrabold text-white mb-6">About POPSY ADONIS TV</h1>
+        <div class="bg-brandCard border border-brandBorder p-8 rounded-3xl space-y-4 text-gray-300 text-sm leading-relaxed">
+            <p>Popsy Adonis TV is the #1 student lifestyle, nightlife, and entertainment digital platform anchored in Ekiti State University (EKSU).</p>
+            <p>Created with a single mission: to deliver pure daily vibes, non-stop humor, campus party ticket access, and high-converting commercial promo plugs directly to mobile screens.</p>
+        </div>
+    </main>
+    <footer class="bg-brandSurface border-t border-brandBorder py-8 text-center text-xs text-gray-500">&copy; POPSY ADONIS TV</footer>
+    <script>lucide.createIcons();</script>
+</body>
+</html>
