@@ -4,10 +4,10 @@ html { scroll-padding-top: 6rem; }
 body { background-color: #0B0F19; color: #F9FAFB; font-family: 'Inter', sans-serif; }
 .glass-nav { background: rgba(11, 15, 25, .88); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
 
-/* The supplied ghost mark, animated as one complete tile. */
-header .brand-mark { position: relative; flex: 0 0 auto; background: transparent !important; border: 0 !important; box-shadow: none !important; overflow: visible; }
-header .brand-mark > * { visibility: hidden; }
-header .brand-mark::before { content: ""; position: absolute; inset: 0; border-radius: inherit; background: url("brand-logo.svg") center / contain no-repeat; animation: brand-float 4s ease-in-out infinite; transform-origin: center; }
+/* Shared ghost logo used across every page */
+header .brand-mark, .brand-mark { position: relative; flex: 0 0 auto; background: transparent !important; border: 0 !important; box-shadow: none !important; overflow: visible; }
+header .brand-mark > *, .brand-mark > * { visibility: hidden; }
+header .brand-mark::before, .brand-mark::before { content: ""; position: absolute; inset: 0; border-radius: inherit; background: url("brand-logo.svg") center / contain no-repeat; animation: brand-float 4s ease-in-out infinite; transform-origin: center; }
 @keyframes brand-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
 
 .nav-link { padding: .65rem .15rem; transition: color .2s ease; white-space: nowrap; }
@@ -28,12 +28,12 @@ header .brand-mark::before { content: ""; position: absolute; inset: 0; border-r
 a.bg-brandPink, a.bg-whatsapp, a.bg-white, .cta-button { min-height:2.9rem; align-items:center; justify-content:center; border-radius:9999px; font-weight:700; transition:transform .2s ease, background-color .2s ease, box-shadow .2s ease; }
 a.bg-brandPink, a.bg-whatsapp, a.bg-white { display:inline-flex; gap:.55rem; padding:.8rem 1.3rem; box-shadow:0 8px 22px -12px rgba(0,0,0,.8); }
 a.bg-brandPink:hover, a.bg-whatsapp:hover, a.bg-white:hover, .cta-button:hover { transform:translateY(-2px); }
-a.bg-brandPink:focus-visible, a.bg-whatsapp:focus-visible, a.bg-white:focus-visible, .cta-button:focus-visible, .nav-link:focus-visible, .mobile-nav-link:focus-visible { outline:3px solid #EAE6DF; outline-offset:3px; }
+a.bg-brandPink:focus-visible, a.bg-whatsapp:focus-visible, a.bg-white:focus-visible, .cta-button:focus-visible, .nav-link:focus-visible, .mobile-nav-link:focus-visible { outline:3px solid #EAE6DF; outline-offset:2px; }
 .cta-button { display:inline-flex; gap:.55rem; border-radius:9999px; background:#FF4D6D; padding:.8rem 1.25rem; color:#fff; font-size:.9rem; text-align:center; }
 .cta-button:hover { background:#E63946; }
 .cta-whatsapp { background:#25D366; }
 .cta-whatsapp:hover { background:#16a34a; }
-.site-footer { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:.65rem 1.5rem; border-top:1px solid rgba(55,65,81,.65); background:#111827; padding:1.6rem 1rem; color:#6B7280; font-size:.75rem; text-align:center; }
+.site-footer { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:.65rem 1.5rem; border-top:1px solid rgba(55,65,81,.65); background:#111827; padding:1.6rem 1rem; color:#9CA3AF; }
 .footer-link { color:#FF4D6D; font-weight:600; }
 .footer-link:hover { text-decoration:underline; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior:auto !important; animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; } }
