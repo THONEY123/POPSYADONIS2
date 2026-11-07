@@ -7,7 +7,7 @@ body { background-color: #0B0F19; color: #F9FAFB; font-family: 'Inter', sans-ser
 /* Shared ghost logo used across every page */
 header .brand-mark, .brand-mark { position: relative; flex: 0 0 auto; background: transparent !important; border: 0 !important; box-shadow: none !important; overflow: visible; }
 header .brand-mark > *, .brand-mark > * { visibility: hidden; }
-header .brand-mark::before, .brand-mark::before { content: ""; position: absolute; inset: 0; border-radius: inherit; background: url("brand-logo.svg") center / contain no-repeat; animation: brand-float 4s ease-in-out infinite; transform-origin: center; }
+header .brand-mark::before, .brand-mark::before { content: ""; position: absolute; inset: 0; border-radius: inherit; background: url("brand-logo.svg") center / contain no-repeat; animation: brand-float 4s ease-in-out infinite; }
 @keyframes brand-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
 
 .nav-link { padding: .65rem .15rem; transition: color .2s ease; white-space: nowrap; }
@@ -33,8 +33,41 @@ a.bg-brandPink:focus-visible, a.bg-whatsapp:focus-visible, a.bg-white:focus-visi
 .cta-button:hover { background:#E63946; }
 .cta-whatsapp { background:#25D366; }
 .cta-whatsapp:hover { background:#16a34a; }
-.site-footer { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:.65rem 1.5rem; border-top:1px solid rgba(55,65,81,.65); background:#111827; padding:1.6rem 1rem; color:#9CA3AF; }
+.site-footer { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:.65rem 1.5rem; border-top:1px solid rgba(55,65,81,.65); background:#111827; padding:1.6rem 1rem; color:#9CA3AF; text-align:center; }
 .footer-link { color:#FF4D6D; font-weight:600; }
 .footer-link:hover { text-decoration:underline; }
+
+/* Keep the WhatsApp header CTA visible and consistent on every mobile page. */
+@media (max-width: 1023px) {
+  header a[href^="https://wa.me/"][class~="hidden"] {
+    display: inline-flex !important;
+    flex: 0 1 auto;
+    align-items: center;
+    justify-content: center;
+    gap: .55rem;
+    min-height: 3.5rem;
+    padding: .75rem clamp(.75rem, 3vw, 1.5rem);
+    border: 0;
+    border-radius: 9999px;
+    background: #25D366 !important;
+    color: #fff !important;
+    font-size: clamp(.75rem, 3.5vw, 1.15rem);
+    font-weight: 700;
+    line-height: 1;
+    white-space: nowrap;
+    box-shadow: none;
+  }
+  header a[href^="https://wa.me/"][class~="hidden"]:hover { background:#16a34a !important; }
+  header a[href^="https://wa.me/"][class~="hidden"] i { font-size: 1.25em; }
+}
+@media (max-width: 400px) {
+  header > div:first-child { gap: .5rem; }
+  header > div:first-child > a[aria-label="Popsy Adonis TV home"] { gap: .5rem; min-width: 0; }
+  header > div:first-child > a[aria-label="Popsy Adonis TV home"] .brand-mark { width: 2.5rem; height: 2.5rem; }
+  header > div:first-child > a[aria-label="Popsy Adonis TV home"] .font-heading { font-size: .9rem; }
+  header > div:first-child > div:last-child { gap: .35rem; }
+  header a[href^="https://wa.me/"][class~="hidden"] { min-height: 3rem; padding: .65rem .7rem; font-size: .75rem; }
+  header button#menu-btn { padding: .35rem; }
+}
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior:auto !important; animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; } }
 @media (max-width: 640px) { .page-heading { margin-bottom:2rem; } .site-footer { flex-direction:column; } }
