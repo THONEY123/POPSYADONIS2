@@ -1,255 +1,1050 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0b0f19">
-  <meta name="description" content="POPSY ADONIS TV — EKSU entertainment, party tickets, campus connects, and advertising.">
-  <title>POPSY ADONIS TV — Your cure to boredom</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="POPSY ADONIS TV is a WhatsApp TV and lifestyle platform for EKSU students with party updates, viral content, matchmaking requests, and brand promotions." />
+  <title>POPSY ADONIS TV | WhatsApp TV</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <style>
     :root {
-      color-scheme: dark;
       --bg: #0b0f19;
-      --surface: #111827;
-      --card: #1a2433;
-      --line: #2b3748;
-      --text: #f9fafb;
-      --muted: #aab4c3;
+      --bg2: #111827;
+      --card: #141d2c;
+      --card-2: #1a2434;
+      --line: rgba(148, 163, 184, 0.22);
+      --text: #f5f7fb;
+      --muted: #b3bfd2;
       --pink: #ff4d6d;
+      --pink-2: #ff6a82;
       --green: #25d366;
-      --cream: #eae6df;
-      --radius: 22px;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --green-2: #4fe08e;
+      --gold: #f7c948;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      --r: 22px;
     }
+
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body { margin: 0; min-height: 100vh; color: var(--text); background: var(--bg); }
-    a { color: inherit; }
+    body {
+      margin: 0;
+      background: radial-gradient(circle at top left, rgba(255,77,109,0.18), transparent 35%),
+                  radial-gradient(circle at right bottom, rgba(37,211,102,0.12), transparent 30%),
+                  var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
     button { font: inherit; }
-    .skip-link { position: absolute; left: 12px; top: -60px; z-index: 20; padding: 10px 14px; background: var(--pink); border-radius: 8px; }
-    .skip-link:focus { top: 12px; }
-    .site-header { position: sticky; top: 0; z-index: 10; background: rgb(11 15 25 / 90%); border-bottom: 1px solid rgb(43 55 72 / 75%); backdrop-filter: blur(14px); }
-    .nav-wrap { width: min(1120px, calc(100% - 36px)); min-height: 76px; margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-    .brand { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; font-weight: 900; letter-spacing: -.04em; white-space: nowrap; }
-    .brand-mark { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 14px; background: var(--cream); color: var(--bg); font-size: 23px; }
-    .brand-name span { color: var(--pink); }
-    .nav-links { display: flex; align-items: center; justify-content: center; gap: 6px; }
-    .nav-links a { padding: 10px 12px; color: var(--muted); text-decoration: none; font-size: 13px; font-weight: 700; border-radius: 999px; transition: .2s ease; }
-    .nav-links a:hover, .nav-links a[aria-current="page"] { color: white; background: #202b3b; }
-    .nav-links a[aria-current="page"] { box-shadow: inset 0 0 0 1px var(--line); }
-    .button { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 46px; padding: 0 18px; border: 0; border-radius: 999px; background: var(--pink); color: white; text-decoration: none; font-weight: 800; font-size: 14px; transition: transform .2s, background .2s; cursor: pointer; }
-    .button:hover { background: #e63958; transform: translateY(-2px); }
-    .button.green { background: var(--green); color: #05210f; }
-    .button.green:hover { background: #47e17e; }
-    .button.secondary { background: #202b3b; border: 1px solid var(--line); }
-    .button.secondary:hover { background: #2a3749; }
-    .menu-toggle { display: none; width: 42px; height: 42px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); color: white; font-size: 20px; }
-    main { width: min(1120px, calc(100% - 36px)); margin: auto; }
-    .page { display: none; padding: clamp(52px, 8vw, 94px) 0; min-height: calc(100vh - 150px); animation: appear .28s ease both; }
-    .page.active { display: block; }
-    @keyframes appear { from { opacity: .35; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-    .hero { position: relative; overflow: hidden; text-align: center; padding-top: clamp(56px, 10vw, 112px); }
-    .hero::before, .hero::after { content: ""; position: absolute; z-index: -1; width: 320px; height: 320px; border-radius: 50%; filter: blur(100px); opacity: .18; pointer-events: none; }
-    .hero::before { background: var(--pink); top: 40px; left: 10%; }
-    .hero::after { background: #25d366; right: 4%; bottom: 5%; }
-    .eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 8px 13px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); background: rgb(26 36 51 / 75%); font-size: 12px; font-weight: 750; }
-    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 14px var(--green); }
-    h1, h2, h3, p { margin-top: 0; }
-    h1, h2, h3 { letter-spacing: -.04em; }
-    h1 { margin: 22px 0 14px; font-size: clamp(44px, 8vw, 84px); line-height: .98; }
-    h1 span, .accent { color: var(--pink); }
-    h2 { margin-bottom: 14px; font-size: clamp(32px, 5vw, 52px); line-height: 1.05; }
-    h3 { margin-bottom: 10px; font-size: 21px; }
-    .lead { max-width: 700px; margin: 0 auto 28px; color: var(--muted); font-size: clamp(16px, 2vw, 19px); line-height: 1.7; }
-    .hero-quote { margin: 0 auto 12px; color: var(--cream); font-size: clamp(18px, 3vw, 24px); font-weight: 750; font-style: italic; }
-    .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin: 28px 0 62px; }
-    .stats, .grid { display: grid; gap: 16px; }
-    .stats { grid-template-columns: repeat(4, 1fr); text-align: center; }
-    .stat, .card, .panel { padding: 24px; border: 1px solid var(--line); border-radius: var(--radius); background: linear-gradient(145deg, rgb(26 36 51 / 96%), rgb(17 24 39 / 96%)); }
-    .stat strong { display: block; margin-bottom: 5px; font-size: 28px; }
-    .stat span, .muted { color: var(--muted); }
-    .section-heading { max-width: 720px; margin: 0 auto 34px; text-align: center; }
-    .section-heading p, .card p, .panel p { color: var(--muted); line-height: 1.7; }
-    .grid.two { grid-template-columns: repeat(2, 1fr); }
-    .grid.three { grid-template-columns: repeat(3, 1fr); }
-    .icon { width: 46px; height: 46px; display: grid; place-items: center; margin-bottom: 18px; border-radius: 15px; background: rgb(255 77 109 / 12%); font-size: 23px; }
-    .tag { display: inline-block; margin: 0 6px 6px 0; padding: 7px 10px; border: 1px solid var(--line); border-radius: 9px; color: var(--muted); background: var(--bg); font-size: 12px; }
-    .event { border-color: rgb(255 77 109 / 55%); }
-    .event-label { display: inline-block; margin-bottom: 12px; padding: 6px 10px; border-radius: 999px; background: rgb(255 77 109 / 16%); color: #ff8da2; font-size: 11px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
-    .price-note { margin: 18px 0; padding: 16px; border-radius: 14px; background: var(--bg); color: var(--muted); }
-    .page-intro { max-width: 760px; margin: 0 auto 40px; text-align: center; }
-    .page-intro p { color: var(--muted); line-height: 1.7; }
-    .contact-panel { margin-top: 22px; text-align: center; }
-    .site-footer { width: min(1120px, calc(100% - 36px)); margin: 0 auto; padding: 24px 0 36px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; color: var(--muted); font-size: 12px; }
-    .site-footer a { color: var(--pink); text-decoration: none; }
-    :focus-visible { outline: 3px solid #ff9aab; outline-offset: 3px; }
-    @media (max-width: 800px) {
-      .nav-wrap { min-height: 68px; }
-      .menu-toggle { display: inline-grid; place-items: center; }
+    .container { width: min(1180px, calc(100% - 36px)); margin: 0 auto; }
+    .glass { background: rgba(10,14,24,0.7); backdrop-filter: blur(16px); }
+    .brand-text { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .text-soft { color: var(--muted); }
+    .pink { color: var(--pink); }
+    .green { color: var(--green); }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--line);
+      background: rgba(11, 15, 25, 0.8);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav {
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: linear-gradient(180deg, #f7f3ee, #d9d2c8);
+      display: grid;
+      place-items: center;
+      color: #111827;
+      font-size: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .brand-name {
+      font-size: 1.15rem;
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .brand-name .pink { color: var(--pink); }
+
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      flex: 1;
+    }
+
+    .desktop-nav a {
+      color: #d7deea;
+      padding: 10px 12px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      transition: 0.2s ease;
+    }
+
+    .desktop-nav a:hover, .desktop-nav a.active {
+      color: #fff;
+      background: rgba(255,255,255,0.04);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 0 18px;
+      border-radius: 999px;
+      background: var(--green);
+      color: #04170d;
+      font-weight: 800;
+      font-size: 0.81rem;
+      box-shadow: 0 16px 28px rgba(37,211,102,0.25);
+    }
+
+    .nav-cta.alt {
+      background: var(--pink);
+      color: white;
+      box-shadow: 0 16px 28px rgba(255,77,109,0.22);
+    }
+
+    .mobile-btn {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.02);
+      color: white;
+      font-size: 1.2rem;
+    }
+
+    .mobile-menu {
+      display: none;
+      padding: 0 0 16px;
+      border-top: 1px solid var(--line);
+      background: rgba(11,15,25,0.96);
+    }
+
+    .mobile-menu a {
+      display: block;
+      padding: 12px 18px;
+      color: #dfe7f3;
+      border-radius: 12px;
+      margin: 4px 12px;
+      font-weight: 700;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(72px, 10vw, 120px) 0 50px;
+    }
+
+    .hero::before, .hero::after {
+      content: "";
+      position: absolute;
+      filter: blur(100px);
+      border-radius: 999px;
+      pointer-events: none;
+      opacity: 0.25;
+    }
+
+    .hero::before {
+      width: 340px;
+      height: 340px;
+      left: 8%;
+      top: 30px;
+      background: rgba(255,77,109,0.4);
+    }
+
+    .hero::after {
+      width: 300px;
+      height: 300px;
+      right: 6%;
+      bottom: 10px;
+      background: rgba(37,211,102,0.3);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(20, 29, 44, 0.7);
+      color: #dfe8f6;
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .badge .live-dot {
+      width: 9px;
+      height: 9px;
+      background: var(--green);
+      border-radius: 50%;
+      box-shadow: 0 0 12px var(--green);
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.25); opacity: 0.8; }
+    }
+
+    .hero h1 {
+      margin: 26px 0 16px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(3rem, 7vw, 6.6rem);
+      line-height: 0.94;
+      letter-spacing: -0.08em;
+      font-weight: 900;
+    }
+
+    .hero h1 .pink {
+      color: var(--pink);
+      text-shadow: 0 0 24px rgba(255,77,109,0.35);
+    }
+
+    .hero-quote {
+      font-size: clamp(1.15rem, 2vw, 1.9rem);
+      font-weight: 700;
+      color: #f0efe8;
+      font-style: italic;
+      margin: 0 0 12px;
+    }
+
+    .hero-copy {
+      max-width: 760px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.8vw, 1.18rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 30px 0 48px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 52px;
+      padding: 0 24px;
+      border-radius: 999px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      transition: 0.2s ease;
+      border: 1px solid transparent;
+    }
+
+    .button:hover { transform: translateY(-2px); }
+    .button.primary {
+      background: var(--pink);
+      color: white;
+      box-shadow: 0 22px 30px rgba(255,77,109,0.2);
+    }
+    .button.primary:hover { background: #de3d59; }
+
+    .button.secondary {
+      background: rgba(255,255,255,0.02);
+      border-color: rgba(255,255,255,0.14);
+      color: white;
+    }
+
+    .button.success {
+      background: var(--green);
+      color: #03160d;
+      box-shadow: 0 18px 28px rgba(37,211,102,0.2);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 12px;
+    }
+
+    .stat {
+      border: 1px solid var(--line);
+      background: rgba(18,26,36,0.8);
+      border-radius: 20px;
+      padding: 22px 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .stat strong {
+      display: block;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(1.65rem, 2.8vw, 2.7rem);
+      letter-spacing: -0.06em;
+      margin-bottom: 3px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    section { padding: 28px 0 18px; }
+    .section-head {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 34px;
+    }
+
+    .section-title {
+      margin: 0 0 12px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(2.1rem, 4vw, 3.4rem);
+      letter-spacing: -0.06em;
+      line-height: 1.05;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      margin: 0;
+      font-size: 1.02rem;
+    }
+
+    .card-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid-3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      padding: 24px;
+      background: linear-gradient(180deg, rgba(20,29,44,0.95), rgba(13,18,28,0.95));
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto auto 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--pink), transparent, var(--green));
+      opacity: 0.8;
+    }
+
+    .icon-box {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      font-size: 1.3rem;
+      margin-bottom: 18px;
+      background: rgba(255,77,109,0.09);
+      color: var(--pink);
+      border: 1px solid rgba(255,77,109,0.18);
+    }
+
+    .icon-box.green { background: rgba(37,211,102,0.08); color: var(--green); border-color: rgba(37,211,102,0.2); }
+    .icon-box.gold { background: rgba(247,201,73,0.08); color: var(--gold); border-color: rgba(247,201,73,0.2); }
+
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 1.45rem;
+      letter-spacing: -0.04em;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .feature-list {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .feature-list span {
+      display: inline-flex;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--line);
+      color: #dfe7f4;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .promo-box {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 20px;
+      background: linear-gradient(135deg, rgba(20,29,44,0.96), rgba(10,15,23,0.95));
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .promo-copy {
+      padding: 26px;
+    }
+
+    .promo-copy .kicker {
+      color: #ff9eb0;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+
+    .promo-copy h3 {
+      margin: 0 0 14px;
+      font-size: clamp(1.8rem, 3vw, 3rem);
+      letter-spacing: -0.06em;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .promo-copy p {
+      color: var(--muted);
+      margin: 0 0 24px;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 12px;
+    }
+
+    .mini-box {
+      padding: 14px 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .mini-box strong {
+      display: block;
+      color: white;
+      margin-bottom: 6px;
+      font-size: 1rem;
+    }
+
+    .promo-side {
+      position: relative;
+      min-height: 300px;
+      background: linear-gradient(135deg, rgba(255,77,109,0.15), rgba(37,211,102,0.1));
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+
+    .promo-side .panel {
+      width: min(100%, 340px);
+      border-radius: 22px;
+      background: rgba(9,12,18,0.9);
+      border: 1px solid var(--line);
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .mock-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--line);
+      margin-bottom: 12px;
+    }
+
+    .mock-card:last-child { margin-bottom: 0; }
+
+    .mock-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: rgba(255,77,109,0.14);
+      display: grid;
+      place-items: center;
+      color: var(--pink);
+      font-size: 1.1rem;
+    }
+
+    .mock-icon.green {
+      background: rgba(37,211,102,0.1);
+      color: var(--green);
+    }
+
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 18px;
+    }
+
+    .review {
+      background: rgba(18,25,35,0.9);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .stars { color: #f7c948; margin-bottom: 10px; }
+    .review p { color: var(--muted); margin: 0 0 18px; }
+    .review strong { display: block; font-size: 1rem; }
+    .review span { color: #dfe7f4; font-size: 0.82rem; }
+
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .contact-box, .cta-box {
+      background: linear-gradient(180deg, rgba(20,29,44,0.96), rgba(12,18,29,0.96));
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .whats-app-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 18px 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--line);
+      margin-top: 16px;
+    }
+
+    .whats-app-box strong {
+      display: block;
+      font-size: 1.25rem;
+      letter-spacing: -0.05em;
+      margin-top: 6px;
+    }
+
+    .copy-btn {
+      min-width: 96px;
+      height: 42px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.02);
+      color: white;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .cta-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(255,77,109,0.12), rgba(37,211,102,0.07));
+    }
+
+    .cta-box .full-width {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .faq {
+      max-width: 920px;
+      margin: 0 auto;
+      display: grid;
+      gap: 14px;
+    }
+
+    .faq-item {
+      background: rgba(18,25,35,0.85);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px 20px;
+      color: var(--muted);
+    }
+
+    .faq-item strong {
+      display: block;
+      color: white;
+      margin-bottom: 6px;
+      font-size: 1.05rem;
+    }
+
+    footer {
+      padding: 28px 0 30px;
+      border-top: 1px solid var(--line);
+      margin-top: 30px;
+    }
+
+    .footer-grid {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    .socials {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1rem;
+    }
+
+    .socials a {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--line);
+      color: #dfe9f8;
+    }
+
+    @media (max-width: 900px) {
+      .desktop-nav { display: none; }
+      .mobile-btn { display: inline-grid; place-items: center; }
+      .stats { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .grid-3, .review-grid, .grid-2 { grid-template-columns: 1fr; }
+      .promo-box, .contact-wrap { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      .nav { height: 72px; }
       .nav-cta { display: none; }
-      .nav-links { display: none; position: absolute; top: 68px; left: 0; right: 0; padding: 12px 18px 18px; border-bottom: 1px solid var(--line); background: var(--bg); flex-direction: column; align-items: stretch; }
-      .nav-links.open { display: flex; }
-      .nav-links a { padding: 13px 15px; }
-      .stats { grid-template-columns: repeat(2, 1fr); }
-      .grid.three { grid-template-columns: 1fr; }
+      .hero { padding-top: 62px; }
+      .hero-actions .button { width: 100%; }
+      .stats { grid-template-columns: 1fr; }
+      .whats-app-box { flex-direction: column; align-items: flex-start; }
+      .copy-btn { width: 100%; }
+      .socials { width: 100%; justify-content: center; }
+      .footer-grid { justify-content: center; text-align: center; }
     }
-    @media (max-width: 560px) {
-      .brand-name { font-size: 14px; }
-      main, .nav-wrap, .site-footer { width: min(100% - 28px, 1120px); }
-      .grid.two { grid-template-columns: 1fr; }
-      .page { min-height: calc(100vh - 130px); }
-      .stat, .card, .panel { padding: 20px; }
-      .actions { margin-bottom: 42px; }
-      .actions .button { width: 100%; }
-    }
-    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } }
   </style>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header">
-    <div class="nav-wrap">
-      <a class="brand" href="#home" aria-label="Popsy Adonis TV home">
-        <span class="brand-mark" aria-hidden="true">👻</span>
-        <span class="brand-name">POPSY <span>ADONIS</span></span>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="Home">
+        <span class="brand-mark">👻</span>
+        <span class="brand-name">POPSY <span class="pink">ADONIS</span></span>
       </a>
-      <nav class="nav-links" id="site-nav" aria-label="Main navigation">
-        <a href="#home" data-page-link="home">Home</a>
-        <a href="#about" data-page-link="about">About</a>
-        <a href="#parties" data-page-link="parties">Party Tickets</a>
-        <a href="#connects" data-page-link="connects">Matchmaking</a>
-        <a href="#advertise" data-page-link="advertise">Advertise</a>
+
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#features">Features</a>
+        <a href="#tickets">Tickets</a>
+        <a href="#advertise">Advertise</a>
+        <a href="#contact">Contact</a>
       </nav>
-      <a class="button green nav-cta" href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20please%20save%20my%20contact" target="_blank" rel="noopener noreferrer">Join TV ↗</a>
-      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav">☰</button>
+
+      <a class="nav-cta alt" href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20please%20save%20my%20contact" target="_blank" rel="noreferrer">Join TV</a>
+      <button class="mobile-btn" id="mobileToggle" aria-label="Toggle menu">☰</button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#features">Features</a>
+      <a href="#tickets">Tickets</a>
+      <a href="#advertise">Advertise</a>
+      <a href="#contact">Contact</a>
+      <a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20please%20save%20my%20contact" target="_blank" rel="noreferrer">Join WhatsApp TV</a>
     </div>
   </header>
 
-  <main id="main" tabindex="-1">
-    <!-- Five page-style views live at one address: use the menu or #home, #about, #parties, #connects, #advertise. -->
-    <section class="page hero" id="home" data-page="home" aria-labelledby="home-title">
-      <div class="eyebrow"><span class="dot"></span> EKSU entertainment &amp; lifestyle hub</div>
-      <h1 id="home-title">POPSY <span>ADONIS</span></h1>
-      <p class="hero-quote">“Your best assured cure to boredom...”</p>
-      <p class="lead">Campus vibes, party ticket information, private connects, daily entertainment, and business promotions—all in one place.</p>
-      <div class="actions">
-        <a class="button green" href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20please%20save%20my%20contact" target="_blank" rel="noopener noreferrer">WhatsApp updates ↗</a>
-        <a class="button" href="#parties">Explore party tickets →</a>
-      </div>
-      <div class="stats" aria-label="What you can find here">
-        <div class="stat"><strong>🎉</strong><span>Campus events</span></div>
-        <div class="stat"><strong>💬</strong><span>Private connects</span></div>
-        <div class="stat"><strong>🎵</strong><span>Entertainment</span></div>
-        <div class="stat"><strong>📣</strong><span>Brand promotion</span></div>
+  <main id="home">
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="badge"><span class="live-dot"></span> EKSU WhatsApp TV & lifestyle hub</div>
+        <h1>POPSY <span class="pink">ADONIS</span></h1>
+        <p class="hero-quote">“Your best assured cure to boredom...”</p>
+        <p class="hero-copy">The ultimate EKSU entertainment hub for campus events, viral vibes, party ticket info, private connections, and brand promotions — all under one digital roof.</p>
+
+        <div class="hero-actions">
+          <a class="button primary" href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20please%20save%20my%20contact" target="_blank" rel="noreferrer"><i class="fa-brands fa-whatsapp"></i> Join WhatsApp TV</a>
+          <a class="button secondary" href="#tickets"><i class="fa-solid fa-ticket"></i> Buy party tickets</a>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <strong>50K+</strong>
+            <span>Daily views</span>
+          </div>
+          <div class="stat">
+            <strong>#1</strong>
+            <span>EKSU vibes</span>
+          </div>
+          <div class="stat">
+            <strong>24/7</strong>
+            <span>Entertainment</span>
+          </div>
+          <div class="stat">
+            <strong>100%</strong>
+            <span>Direct access</span>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="page" id="about" data-page="about" aria-labelledby="about-title">
-      <div class="page-intro">
-        <span class="eyebrow">A little about us</span>
-        <h2 id="about-title">Welcome to <span class="accent">Popsy Adonis TV</span></h2>
-        <p>A student lifestyle, nightlife, and entertainment platform connected to Ekiti State University (EKSU). We bring campus moments and useful ways to connect together in one place.</p>
+    <section id="features">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">What makes POPSY ADONIS TV different</h2>
+          <p>Built for fun, connection, promotion, and campus visibility — a complete entertainment and digital growth platform.</p>
+        </div>
+
+        <div class="card-grid grid-3">
+          <article class="card">
+            <div class="icon-box"><i class="fa-solid fa-music"></i></div>
+            <h3>Daily gists & memes</h3>
+            <p>Fresh campus updates, viral content, funny moments, and entertaining stories that keep people engaged all day.</p>
+            <div class="feature-list">
+              <span>Fresh drops</span>
+              <span>Viral clips</span>
+              <span>Campus humor</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="icon-box green"><i class="fa-solid fa-ticket"></i></div>
+            <h3>Party ticket updates</h3>
+            <p>All the info you need for the hottest EKSU parties, event passes, and VIP access without the stress.</p>
+            <div class="feature-list">
+              <span>Fast info</span>
+              <span>Event alerts</span>
+              <span>VIP booking</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="icon-box gold"><i class="fa-solid fa-bullhorn"></i></div>
+            <h3>Brand plugs & ads</h3>
+            <p>Reach a high-engagement audience with direct WhatsApp promotions, product features, and campaign placements.</p>
+            <div class="feature-list">
+              <span>Ad slots</span>
+              <span>Brand visibility</span>
+              <span>High conversion</span>
+            </div>
+          </article>
+        </div>
       </div>
-      <div class="grid two">
-        <article class="card"><div class="icon">✨</div><h3>Our mission</h3><p>To make it easier to find campus entertainment, discover events, share a laugh, and get your business or event in front of an engaged audience.</p></article>
-        <article class="card"><div class="icon">📺</div><h3>What we do</h3><p>From party information and music to matchmaking inquiries and promotional placements, Popsy Adonis TV helps keep the campus community connected.</p></article>
-      </div>
-      <div class="panel contact-panel"><h3>Want to connect?</h3><p>Message Popsy Adonis on WhatsApp and let us know what you’re looking for.</p><a class="button green" href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20want%20to%20know%20more" target="_blank" rel="noopener noreferrer">Say hello on WhatsApp ↗</a></div>
     </section>
 
-    <section class="page" id="parties" data-page="parties" aria-labelledby="parties-title">
-      <div class="page-intro">
-        <span class="eyebrow">🎉 EKSU party central</span>
-        <h2 id="parties-title">Find your next <span class="accent">night out</span></h2>
-        <p>Get in touch for upcoming EKSU parties, ticket availability, event details, and VIP table inquiries. Ask for the confirmed date, venue, and prices before making plans.</p>
-      </div>
-      <div class="grid two">
-        <article class="card event">
-          <span class="event-label">Party tickets</span>
-          <h3>Upcoming EKSU events</h3>
-          <p>Want to attend a campus rave or party? Contact us for the latest event details and available passes.</p>
-          <div class="price-note">Ticket prices and event details are shared directly—message us to confirm current availability.</div>
-          <a class="button" href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20please%20send%20me%20the%20latest%20EKSU%20party%20and%20ticket%20details" target="_blank" rel="noopener noreferrer">Ask about tickets ↗</a>
-        </article>
-        <article class="card">
-          <div class="icon">👑</div><h3>VIP tables</h3>
-          <p>Planning a group night out? Ask about table availability, seating, and pricing for the event you have in mind.</p>
-          <a class="button secondary" href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20want%20to%20ask%20about%20a%20VIP%20table" target="_blank" rel="noopener noreferrer">Inquire about a table ↗</a>
-        </article>
+    <section id="about">
+      <div class="container">
+        <div class="promo-box">
+          <div class="promo-copy">
+            <span class="kicker">About us</span>
+            <h3>Campus energy, direct access, and bold storytelling.</h3>
+            <p>POPSY ADONIS TV connects entertainment with real-life value for students and brands. From nightlife updates to direct communication, we help people discover events, connect with others, and turn attention into action.</p>
+
+            <div class="mini-grid">
+              <div class="mini-box">
+                <strong>Student-centered</strong>
+                Built for campus lifestyle and social culture.
+              </div>
+              <div class="mini-box">
+                <strong>Easy to reach</strong>
+                Direct WhatsApp contact and instant booking flow.
+              </div>
+              <div class="mini-box">
+                <strong>High engagement</strong>
+                Content designed to spark attention and action.
+              </div>
+              <div class="mini-box">
+                <strong>Real results</strong>
+                Promotions built for conversion and visibility.
+              </div>
+            </div>
+          </div>
+
+          <div class="promo-side">
+            <div class="panel">
+              <div class="mock-card">
+                <div class="mock-icon"><i class="fa-solid fa-user-group"></i></div>
+                <div style="flex:1;">
+                  <div style="font-weight:800;">Matchmaking</div>
+                  <div class="text-soft" style="font-size:0.75rem;">Private inquiries</div>
+                </div>
+              </div>
+
+              <div class="mock-card">
+                <div class="mock-icon green"><i class="fa-solid fa-calendar-days"></i></div>
+                <div style="flex:1;">
+                  <div style="font-weight:800;">Events</div>
+                  <div class="text-soft" style="font-size:0.75rem;">EKSU parties & tickets</div>
+                </div>
+              </div>
+
+              <div class="mock-card">
+                <div class="mock-icon"><i class="fa-solid fa-bag-shopping"></i></div>
+                <div style="flex:1;">
+                  <div style="font-weight:800;">Ad placements</div>
+                  <div class="text-soft" style="font-size:0.75rem;">Business visibility</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="page" id="connects" data-page="connects" aria-labelledby="connects-title">
-      <div class="page-intro">
-        <span class="eyebrow">💬 Campus connections</span>
-        <h2 id="connects-title">Meet people, <span class="accent">respectfully</span></h2>
-        <p>Interested in meeting someone or asking about a private introduction? Send an inquiry and we’ll explain what’s available. All connections should be consensual and between adults.</p>
+    <section id="tickets">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Party tickets & event access</h2>
+          <p>When the event is hot, Popsy Adonis helps you stay ahead of the crowd with direct ticket discussions and quick booking.</p>
+        </div>
+
+        <div class="card-grid grid-2">
+          <article class="card" style="border-color: rgba(255,77,109,0.45);">
+            <span style="display:inline-block; margin-bottom:14px; padding:7px 10px; border-radius:999px; font-size:0.7rem; font-weight:900; letter-spacing:0.12em; text-transform:uppercase; background: rgba(255,77,109,0.12); color:#ff9caf;">Official main event</span>
+            <h3>THE UNTAMED EKSU NIGHT RAVE</h3>
+            <p>Premium vibes, DJ sets, hype moments, and a full-on campus nightlife atmosphere.</p>
+            <div class="feature-list" style="margin-bottom:18px;">
+              <span>Location: Ado-Ekiti</span>
+              <span>Time: 9PM till dawn</span>
+            </div>
+            <a class="button primary" href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20want%20to%20reserve%20my%20ticket%20for%20the%20Night%20Rave" target="_blank" rel="noreferrer">Reserve ticket</a>
+          </article>
+
+          <article class="card">
+            <div class="icon-box green"><i class="fa-solid fa-crown"></i></div>
+            <h3>VIP tables & bottle service</h3>
+            <p>Planning a group night with premium seating and a smoother experience? Reach out for private table pricing.</p>
+            <div class="feature-list">
+              <span>Table bookings</span>
+              <span>Private service</span>
+              <span>Priority access</span>
+            </div>
+            <div style="margin-top:18px;">
+              <a class="button success" href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20want%20to%20book%20a%20VIP%20table" target="_blank" rel="noreferrer">Inquire VIP</a>
+            </div>
+          </article>
+        </div>
       </div>
-      <div class="grid three">
-        <article class="card"><div class="icon">🔒</div><h3>Privacy first</h3><p>Share only what you’re comfortable sharing. Ask how an introduction works before sending personal details.</p></article>
-        <article class="card"><div class="icon">🤝</div><h3>Mutual respect</h3><p>Every connection should be voluntary. Respect boundaries and accept a “no” without pressure.</p></article>
-        <article class="card"><div class="icon">📩</div><h3>Make an inquiry</h3><p>Message us to learn about current options and the next steps before deciding whether to participate.</p></article>
-      </div>
-      <div class="panel contact-panel"><a class="button green" href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20have%20a%20question%20about%20campus%20connections" target="_blank" rel="noopener noreferrer">Ask privately on WhatsApp ↗</a></div>
     </section>
 
-    <section class="page" id="advertise" data-page="advertise" aria-labelledby="advertise-title">
-      <div class="page-intro">
-        <span class="eyebrow">📣 Promote your business</span>
-        <h2 id="advertise-title">Advertise with <span class="accent">Popsy Adonis TV</span></h2>
-        <p>Promote a product, service, event, or personal brand to our WhatsApp TV audience. Contact us to discuss your goals, schedule, and current rates.</p>
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">People trust the vibe</h2>
+          <p>From party lovers to brand owners, POPSY ADONIS TV keeps people connected and engaged.</p>
+        </div>
+
+        <div class="review-grid">
+          <article class="review">
+            <div class="stars">★★★★★</div>
+            <p>“Fast, direct, and always active. I got all the party details in one message.”</p>
+            <strong>Chisom A.</strong>
+            <span>Student</span>
+          </article>
+
+          <article class="review">
+            <div class="stars">★★★★★</div>
+            <p>“The brand placements are perfect for reaching students. The visibility is real.”</p>
+            <strong>Obi T.</strong>
+            <span>Business owner</span>
+          </article>
+
+          <article class="review">
+            <div class="stars">★★★★★</div>
+            <p>“Everything feels easy, smooth, and high-energy. This is exactly the kind of vibe people connect with.”</p>
+            <strong>Faith M.</strong>
+            <span>Event guest</span>
+          </article>
+        </div>
       </div>
-      <div class="grid three">
-        <article class="card"><div class="icon">🖼️</div><h3>Flyer placement</h3><p>Share a promotional image with a tailored caption and the contact or link you want customers to use.</p></article>
-        <article class="card"><div class="icon">📅</div><h3>Campaign packages</h3><p>Ask about multi-day placements and timing options to plan a campaign around your launch or event.</p></article>
-        <article class="card"><div class="icon">🎥</div><h3>Video promotion</h3><p>Discuss video shoutouts or product features and find out what content formats are currently available.</p></article>
+    </section>
+
+    <section id="advertise">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Promote your business with POPSY ADONIS</h2>
+          <p>Own the attention of active students and interested audiences with direct ad placements and conversion-focused content.</p>
+        </div>
+
+        <div class="card-grid grid-3">
+          <article class="card">
+            <div class="icon-box"><i class="fa-regular fa-image"></i></div>
+            <h3>Status flyer adverts</h3>
+            <p>High-visibility flyer placements with heavily engaged social audiences and direct link actions.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon-box green"><i class="fa-solid fa-link"></i></div>
+            <h3>Link drops & CTA</h3>
+            <p>Drive traffic to your product page, WhatsApp line, group, social page, or event booking link.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon-box gold"><i class="fa-solid fa-video"></i></div>
+            <h3>Video reviews</h3>
+            <p>Feature your product or event through direct video mention, shoutout placement, or short review style content.</p>
+          </article>
+        </div>
       </div>
-      <div class="panel contact-panel"><h3>Let’s talk about your promotion</h3><p>Tell us what you’re promoting and when you’d like it to run. We’ll confirm availability and pricing.</p><a class="button green" href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20want%20to%20ask%20about%20advertising" target="_blank" rel="noopener noreferrer">Get an advertising quote ↗</a></div>
+    </section>
+
+    <section id="contact">
+      <div class="container contact-wrap">
+        <div class="contact-box">
+          <span class="kicker" style="color:#8fe4b3;">Contact</span>
+          <h3 style="margin: 0 0 12px; font-size: clamp(1.9rem,3vw,2.9rem); letter-spacing: -0.06em; font-family: 'Plus Jakarta Sans', sans-serif;">Talk to POPSY ADONIS directly</h3>
+          <p class="text-soft">Need party details, ad pricing, or a direct WhatsApp response? Reach out immediately and we’ll guide you.</p>
+
+          <div class="whats-app-box">
+            <div>
+              <span style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.12em; color: #dfe7f4; font-weight: 800;">Official WhatsApp</span>
+              <strong>07076401108</strong>
+            </div>
+            <button class="copy-btn" data-copy="07076401108">Copy</button>
+          </div>
+        </div>
+
+        <div class="cta-box">
+          <span class="kicker" style="color:#ff9eb0;">Ready?</span>
+          <h3 style="margin: 0 0 12px; font-size: clamp(1.8rem,3vw,2.5rem); letter-spacing: -0.06em; font-family: 'Plus Jakarta Sans', sans-serif;">Start your next move</h3>
+          <p class="text-soft">Ask about tickets, new event info, brand promotions, or a private connection.</p>
+          <a class="button primary full-width" href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20want%20to%20chat%20with%20you" target="_blank" rel="noreferrer"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Frequently asked questions</h2>
+        </div>
+
+        <div class="faq">
+          <div class="faq-item">
+            <strong>How do I get party tickets?</strong>
+            Send a WhatsApp message to the official line and ask for the latest party details and ticket status.
+          </div>
+          <div class="faq-item">
+            <strong>Can I advertise my product or event?</strong>
+            Yes. Reach out for promotional packages, flyer placement, direct link drops, and short promotional content.
+          </div>
+          <div class="faq-item">
+            <strong>Is the platform good for student visibility?</strong>
+            Yes. It is designed to connect with engaged student audiences, event lovers, and social media-driven traffic.
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <span>© <span id="year"></span> POPSY ADONIS TV</span>
-    <span>EKSU entertainment &amp; lifestyle</span>
-    <a href="#home">Back to top ↑</a>
+  <footer>
+    <div class="container footer-grid">
+      <div class="brand" style="gap: 10px;">
+        <span class="brand-mark" style="width:36px;height:36px;border-radius:12px; font-size:18px;">👻</span>
+        <span class="brand-name">POPSY <span class="pink">ADONIS</span></span>
+      </div>
+
+      <div class="socials" aria-label="Social links">
+        <a href="https://wa.me/2347076401108" target="_blank" rel="noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="https://instagram.com/popsyadonis" target="_blank" rel="noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://tiktok.com/@popsyadonis" target="_blank" rel="noreferrer" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="https://x.com/popsyadonis" target="_blank" rel="noreferrer" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+      </div>
+
+      <div>© <span id="year"></span> POPSY ADONIS TV. All rights reserved.</div>
+    </div>
   </footer>
 
   <script>
-    (() => {
-      const pageIds = ['home', 'about', 'parties', 'connects', 'advertise'];
-      const pages = [...document.querySelectorAll('[data-page]')];
-      const links = [...document.querySelectorAll('[data-page-link]')];
-      const menu = document.getElementById('site-nav');
-      const menuToggle = document.getElementById('menu-toggle');
+    const mobileToggle = document.getElementById('mobileToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileToggle.addEventListener('click', () => {
+      mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
+    });
 
-      function showPage() {
-        const requested = window.location.hash.slice(1);
-        const activeId = pageIds.includes(requested) ? requested : 'home';
-        pages.forEach((page) => {
-          const isActive = page.dataset.page === activeId;
-          page.classList.toggle('active', isActive);
-          page.setAttribute('aria-hidden', String(!isActive));
-        });
-        links.forEach((link) => {
-          if (link.dataset.pageLink === activeId) link.setAttribute('aria-current', 'page');
-          else link.removeAttribute('aria-current');
-        });
-        menu.classList.remove('open');
-        menuToggle.setAttribute('aria-expanded', 'false');
-        menuToggle.setAttribute('aria-label', 'Open navigation');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-
-      menuToggle.addEventListener('click', () => {
-        const isOpen = menu.classList.toggle('open');
-        menuToggle.setAttribute('aria-expanded', String(isOpen));
-        menuToggle.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
+    document.querySelectorAll('[data-copy]').forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        const value = btn.getAttribute('data-copy');
+        try {
+          await navigator.clipboard.writeText(value);
+          const oldText = btn.textContent;
+          btn.textContent = 'Copied';
+          setTimeout(() => { btn.textContent = oldText; }, 1500);
+        } catch (err) {
+          btn.textContent = 'Failed';
+          setTimeout(() => { btn.textContent = 'Copy'; }, 1500);
+        }
       });
-      window.addEventListener('hashchange', showPage);
-      document.getElementById('year').textContent = new Date().getFullYear();
-      if (!pageIds.includes(window.location.hash.slice(1))) history.replaceState(null, '', '#home');
-      showPage();
-    })();
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
