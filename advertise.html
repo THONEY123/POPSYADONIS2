@@ -10,7 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://unpkg.com/lucide@latest"></script>
-
     <script>
         tailwind.config = {
             theme: {
@@ -41,28 +40,45 @@
     </style>
 </head>
 <body class="bg-brandDark text-gray-100 antialiased selection:bg-brandPink selection:text-white">
-
     <header class="fixed top-0 left-0 w-full z-40 glass-nav border-b border-brandBorder/50">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-3">
                 <div class="w-10 h-10 bg-brandCream rounded-xl flex items-center justify-center shadow-lg">
-                    <svg class="w-6 h-6" viewBox="0 0 100 100" fill="none">
-                        <path d="M50 12C33.4 12 20 25.4 20 44V73C20 76.5 24 79 27 76.5C30 74 34 74 37 76.5C40 79 44 79 47 76.5C50 74 54 74 57 76.5C60 79 64 79 67 76.5C70 74 74 74 77 76.5C80 79 84 76.5 84 73V44C84 25.4 70.6 12 50 12Z" fill="#EAE6DF" stroke="#2B2B2B" stroke-width="2"/>
-                        <circle cx="41" cy="38" r="3" fill="#EAE6DF"/>
-                        <circle cx="61" cy="38" r="7.5" fill="#EAE6DF"/>
-                        <path d="M44 54C44 64 56 64 56 54V53H44V54Z" fill="#FF4D6D"/>
-                    </svg>
+                    <i data-lucide="ghost" class="w-6 h-6 text-brandDark"></i>
                 </div>
                 <h1 class="font-heading font-extrabold text-lg text-white">POPSY <span class="text-brandPink">ADONIS</span></h1>
             </a>
+
             <nav class="hidden md:flex items-center gap-7 font-medium text-sm text-gray-300">
                 <a href="index.html" class="hover:text-brandPink">Home</a>
                 <a href="parties.html" class="hover:text-brandPink">Party Tickets</a>
                 <a href="connects.html" class="hover:text-brandPink">Matchmaking</a>
+                <a href="about.html" class="hover:text-brandPink">About</a>
                 <a href="advertise.html" class="text-emerald-400 font-bold">Advertise</a>
+                <a href="contact.html" class="hover:text-brandPink">Contact</a>
             </nav>
-            <a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20want%20to%20book%20an%20ad" target="_blank" rel="noopener noreferrer" class="bg-whatsapp hover:bg-emerald-600 text-white text-xs font-bold px-5 py-2.5 rounded-full shadow-lg transition-all hover:scale-105">
-                Book Ad Now
+
+            <div class="flex items-center gap-3">
+                <a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20want%20to%20book%20an%20ad" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 bg-whatsapp hover:bg-emerald-600 text-white text-xs font-bold px-5 py-2.5 rounded-full shadow-lg transition-all hover:scale-105">
+                    <i class="fa-brands fa-whatsapp text-sm"></i>
+                    <span>Book Ad Now</span>
+                </a>
+                <button id="menu-btn" class="md:hidden text-gray-300 hover:text-white focus:outline-none p-2" aria-label="Toggle Menu">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-brandSurface border-b border-brandBorder px-4 pt-3 pb-6 space-y-3">
+            <a href="index.html" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brandCard">Home</a>
+            <a href="parties.html" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brandCard">Party Tickets</a>
+            <a href="connects.html" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brandCard">Matchmaking</a>
+            <a href="about.html" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brandCard">About</a>
+            <a href="advertise.html" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-emerald-400 hover:bg-brandCard">Advertise</a>
+            <a href="contact.html" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brandCard">Contact</a>
+            <a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20want%20to%20book%20an%20ad" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 bg-whatsapp text-white text-sm font-bold px-4 py-3 rounded-full">
+                <i class="fa-brands fa-whatsapp text-base"></i>
+                <span>Book Ad Now</span>
             </a>
         </div>
     </header>
@@ -80,9 +96,11 @@
                     <div>
                         <div class="text-xs uppercase font-bold text-gray-400 mb-2">Standard Flyer</div>
                         <h3 class="font-heading text-xl font-bold text-white mb-2">Single Status Plug</h3>
-                        <p class="text-gray-400 text-xs leading-relaxed mb-4">1x High-Definition Flyer upload paired with a custom caption and swipe-up contact link.</p>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-4">1x high-definition flyer upload paired with a custom caption and swipe-up contact link.</p>
                     </div>
-                    <a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20want%20Single%20Status%20Plug" target="_blank" rel="noopener noreferrer" class="w-full text-center bg-brandSurface hover:bg-brandBorder text-white font-bold px-4 py-3 rounded-2xl transition-all">Book This Plug</a>
+                    <a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20want%20Single%20Status%20Plug" target="_blank" rel="noopener noreferrer" class="w-full text-center bg-brandPink hover:bg-brandPinkHover text-white font-bold px-4 py-3 rounded-full">
+                        Book Now
+                    </a>
                 </div>
 
                 <div class="bg-brandCard border border-brandPink p-6 rounded-3xl card-hover relative flex flex-col justify-between">
@@ -90,9 +108,11 @@
                     <div>
                         <div class="text-xs uppercase font-bold text-brandPink mb-2">3-Day Campaign</div>
                         <h3 class="font-heading text-xl font-bold text-white mb-2">Triple Exposure Pack</h3>
-                        <p class="text-gray-400 text-xs leading-relaxed mb-4">3 Consecutive days of flyer uploads, prime evening slots, and direct group link drops.</p>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-4">3 consecutive days of flyer uploads, prime evening slots, and direct group link drops.</p>
                     </div>
-                    <a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20want%20Triple%20Exposure%20Pack" target="_blank" rel="noopener noreferrer" class="w-full text-center bg-brandPink hover:bg-brandPinkHover text-white font-bold px-4 py-3 rounded-2xl transition-all">Get Featured</a>
+                    <a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20want%20Triple%20Exposure%20Pack" target="_blank" rel="noopener noreferrer" class="w-full text-center bg-brandPink hover:bg-brandPinkHover text-white font-bold px-4 py-3 rounded-full">
+                        Choose Pack
+                    </a>
                 </div>
 
                 <div class="bg-brandCard border border-brandBorder p-6 rounded-3xl card-hover flex flex-col justify-between">
@@ -101,14 +121,16 @@
                         <h3 class="font-heading text-xl font-bold text-white mb-2">Video & Shoutout Review</h3>
                         <p class="text-gray-400 text-xs leading-relaxed mb-4">Live video unboxing/review by Popsy Adonis + pinned status mention for 24 hours.</p>
                     </div>
-                    <a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20want%20Video%20Shoutout%20Review" target="_blank" rel="noopener noreferrer" class="w-full text-center bg-brandSurface hover:bg-brandBorder text-white font-bold px-4 py-3 rounded-2xl transition-all">Get Reviewed</a>
+                    <a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20want%20Video%20Shoutout%20Review" target="_blank" rel="noopener noreferrer" class="w-full text-center bg-whatsapp hover:bg-emerald-600 text-white font-bold px-4 py-3 rounded-full">
+                        Get VIP Review
+                    </a>
                 </div>
             </div>
 
             <div id="contact" class="bg-gradient-to-r from-brandSurface to-brandCard border border-brandBorder p-8 rounded-3xl text-center">
                 <h3 class="font-heading text-2xl font-bold text-white mb-2">Need a Custom Advert Plan?</h3>
                 <p class="text-gray-400 text-sm mb-6">Chat with Popsy Adonis directly to discuss weekly or monthly brand retainers.</p>
-                <a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20want%20to%20discuss%20a%20custom%20ad%20retainer" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-whatsapp hover:bg-emerald-600 text-white font-bold text-base px-7 py-4 rounded-2xl shadow-xl transition-all hover:scale-105">
+                <a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20want%20to%20discuss%20a%20custom%20ad%20retainer" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-whatsapp hover:bg-emerald-600 text-white font-bold px-6 py-3 rounded-full shadow-lg transition-all hover:scale-105">
                     <i class="fa-brands fa-whatsapp text-lg"></i>
                     <span>Chat on WhatsApp (07076401108)</span>
                 </a>
@@ -118,10 +140,31 @@
 
     <footer class="bg-brandSurface border-t border-brandBorder/60 py-10">
         <div class="max-w-6xl mx-auto px-4 text-center sm:text-left flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p class="text-xs text-gray-500">&copy; POPSY ADONIS TV. All Rights Reserved.</p>
+            <p class="text-xs text-gray-500">&copy; <span id="year"></span> POPSY ADONIS TV. All Rights Reserved.</p>
             <a href="index.html" class="text-xs text-brandPink hover:underline">Back to Homepage &rarr;</a>
         </div>
     </footer>
-    <script>lucide.createIcons();</script>
+
+    <script>
+        lucide.createIcons();
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (mobileMenu) mobileMenu.classList.add('hidden');
+            });
+        });
+
+        const year = document.getElementById('year');
+        if (year) year.textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>

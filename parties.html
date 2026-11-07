@@ -10,7 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://unpkg.com/lucide@latest"></script>
-
     <script>
         tailwind.config = {
             theme: {
@@ -41,18 +40,11 @@
     </style>
 </head>
 <body class="bg-brandDark text-gray-100 antialiased selection:bg-brandPink selection:text-white">
-
     <header class="fixed top-0 left-0 w-full z-40 glass-nav border-b border-brandBorder/50">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-3 group">
                 <div class="w-12 h-12 bg-gradient-to-b from-brandCream via-[#D9D3C7] to-[#C8C1B3] rounded-2xl flex items-center justify-center shadow-lg border border-white/30 animate-float">
-                    <svg class="w-8 h-8" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M50 12C33.4 12 20 25.4 20 44V73C20 76.5 24 79 27 76.5C30 74 34 74 37 76.5C40 79 44 79 47 76.5C50 74 54 74 57 76.5C60 79 64 79 67 76.5C70 74 74 74 77 76.5C80 79 84 76.5 84 73V44C84 25.4 70.6 12 50 12Z" fill="#F0ECE1" stroke="#2B2B2B" stroke-width="2"/>
-                        <circle cx="41" cy="38" r="3" fill="#111827"/>
-                        <circle cx="61" cy="38" r="7.5" fill="#111827"/>
-                        <circle cx="61" cy="38" r="3" fill="#FFFFFF"/>
-                        <path d="M44 54C44 64 56 64 56 54V53H44V54Z" fill="#FF4D6D"/>
-                    </svg>
+                    <i data-lucide="ghost" class="w-8 h-8 text-brandDark"></i>
                 </div>
                 <div>
                     <h1 class="font-heading font-extrabold text-lg sm:text-xl tracking-tight leading-none text-white">POPSY <span class="text-brandPink">ADONIS</span></h1>
@@ -64,10 +56,30 @@
                 <a href="index.html" class="hover:text-brandPink transition-colors">Home</a>
                 <a href="parties.html" class="text-brandPink font-bold">Party Tickets</a>
                 <a href="connects.html" class="hover:text-brandPink transition-colors">Matchmaking</a>
+                <a href="about.html" class="hover:text-brandPink transition-colors">About</a>
                 <a href="advertise.html" class="hover:text-brandPink transition-colors">Advertise</a>
+                <a href="contact.html" class="hover:text-brandPink transition-colors">Contact</a>
             </nav>
 
-            <a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20want%20to%20buy%20party%20tickets" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 bg-brandPink hover:bg-brandPinkHover text-white font-semibold text-sm px-5 py-2.5 rounded-full shadow-lg transition-all hover:scale-105">
+            <div class="flex items-center gap-3">
+                <a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20want%20to%20buy%20party%20tickets" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 bg-brandPink hover:bg-brandPinkHover text-white font-semibold text-sm px-5 py-2.5 rounded-full shadow-lg transition-all hover:scale-105">
+                    <i class="fa-brands fa-whatsapp text-base"></i>
+                    <span>Buy Tickets</span>
+                </a>
+                <button id="menu-btn" class="md:hidden text-gray-300 hover:text-white focus:outline-none p-2" aria-label="Toggle Menu">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-brandSurface border-b border-brandBorder px-4 pt-3 pb-6 space-y-3">
+            <a href="index.html" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brandCard">Home</a>
+            <a href="parties.html" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-brandPink hover:bg-brandCard">Party Tickets</a>
+            <a href="connects.html" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brandCard">Matchmaking</a>
+            <a href="about.html" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brandCard">About</a>
+            <a href="advertise.html" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brandCard">Advertise</a>
+            <a href="contact.html" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brandCard">Contact</a>
+            <a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20want%20to%20buy%20party%20tickets" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 bg-brandPink text-white text-sm font-bold px-4 py-3 rounded-full">
                 <i class="fa-brands fa-whatsapp text-base"></i>
                 <span>Buy Tickets</span>
             </a>
@@ -77,9 +89,9 @@
     <main class="pt-28 pb-20">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-14">
-                <span class="inline-block bg-red-600/20 text-red-400 border border-red-500/30 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-3 animate-pulse">🔥 Tickets Selling Fast!</span>
+                <span class="inline-block bg-red-600/20 text-red-400 border border-red-500/30 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-3 animate-pulse">🔥 Tickets Selling Fast</span>
                 <h1 class="font-heading text-4xl sm:text-6xl font-extrabold text-white mb-4">EKSU Party Central</h1>
-                <p class="text-gray-300 max-w-2xl mx-auto text-sm sm:text-base">Organizing the wildest, most anticipated student raves, poolside jams, and club takeovers in Ekiti State University. Don’t get locked out at the gate!</p>
+                <p class="text-gray-300 max-w-2xl mx-auto text-sm sm:text-base">Organizing the wildest, most anticipated student raves, poolside jams, and club takeovers in Ekiti State University.</p>
             </div>
 
             <div class="bg-brandCard border border-brandPink p-8 rounded-3xl mb-12 card-hover">
@@ -96,7 +108,7 @@
                     <div class="md:col-span-5 text-center bg-brandSurface p-6 rounded-2xl border border-brandBorder">
                         <div class="text-xs uppercase font-bold text-gray-400 mb-1">Pass Price</div>
                         <div class="text-3xl font-extrabold text-brandPink mb-4">Regular & VIP Available</div>
-                        <a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20want%20to%20reserve%20my%20ticket%20for%20the%20Night%20Rave" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 bg-whatsapp hover:bg-emerald-600 text-white font-bold text-sm px-6 py-3 rounded-2xl shadow-xl transition-all">
+                        <a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20want%20to%20reserve%20my%20ticket%20for%20the%20Night%20Rave" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-whatsapp hover:bg-emerald-600 text-white font-bold px-5 py-3 rounded-full shadow-lg transition-all hover:scale-105">
                             <i class="fa-brands fa-whatsapp text-lg"></i>
                             <span>Reserve Ticket via WhatsApp</span>
                         </a>
@@ -107,7 +119,7 @@
             <div class="bg-brandSurface border border-brandBorder p-8 rounded-3xl">
                 <h3 class="font-heading text-2xl font-bold text-white mb-4">VIP Table & Bottle Service</h3>
                 <p class="text-gray-300 text-sm mb-6">Want dedicated seating, premium bottles, and security escort for your crew? Book directly with Popsy Adonis.</p>
-                <a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20want%20to%20book%20a%20VIP%20Table" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-brandCard hover:bg-brandBorder text-white font-semibold px-5 py-3 rounded-2xl border border-brandBorder transition-all">
+                <a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20want%20to%20book%20a%20VIP%20Table" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-white text-brandDark font-bold px-5 py-3 rounded-full shadow-lg transition-all hover:scale-105">
                     <i data-lucide="crown" class="w-4 h-4 text-yellow-400"></i>
                     <span>Inquire VIP Table Pricing</span>
                 </a>
@@ -117,10 +129,31 @@
 
     <footer class="bg-brandSurface border-t border-brandBorder/60 py-10">
         <div class="max-w-6xl mx-auto px-4 text-center sm:text-left flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p class="text-xs text-gray-500">&copy; POPSY ADONIS TV. All Rights Reserved.</p>
+            <p class="text-xs text-gray-500">&copy; <span id="year"></span> POPSY ADONIS TV. All Rights Reserved.</p>
             <a href="index.html" class="text-xs text-brandPink hover:underline">Back to Homepage &rarr;</a>
         </div>
     </footer>
-    <script>lucide.createIcons();</script>
+
+    <script>
+        lucide.createIcons();
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (mobileMenu) mobileMenu.classList.add('hidden');
+            });
+        });
+
+        const year = document.getElementById('year');
+        if (year) year.textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
