@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>POPSY ADONIS TV — About | Ekiti State University</title>
+    <title>About POPSY ADONIS TV — EKSU Entertainment & Lifestyle</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,42 +11,40 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: { brandDark: '#0B0F19', brandSurface: '#111827', brandCard: '#1F2937', brandBorder: '#374151', brandCream: '#EAE6DF', brandPink: '#FF4D6D', whatsapp: '#25D366' },
-                    fontFamily: { sans: ['Inter', 'sans-serif'], heading: ['Plus Jakarta Sans', 'sans-serif'] }
-                }
-            }
-        }
+        tailwind.config = { theme: { extend: { colors: { brandDark: '#0B0F19', brandSurface: '#111827', brandCard: '#1F2937', brandBorder: '#374151', brandCream: '#EAE6DF', brandPink: '#FF4D6D', brandPinkHover: '#E63946', whatsapp: '#25D366' }, fontFamily: { sans: ['Inter', 'sans-serif'], heading: ['Plus Jakarta Sans', 'sans-serif'] }, animation: { 'float': 'float 4s ease-in-out infinite' }, keyframes: { float: { '0%, 100%': { transform: 'translateY(0px)' }, '50%': { transform: 'translateY(-8px)' } } } } } };
     </script>
-    <style>body { background-color: #0B0F19; color: #F9FAFB; font-family: 'Inter', sans-serif; } .glass-nav { background: rgba(11, 15, 25, 0.85); backdrop-filter: blur(12px); }</style>
+    <style>
+        body { background-color: #0B0F19; color: #F9FAFB; font-family: 'Inter', sans-serif; }
+        .glass-nav { background: rgba(11, 15, 25, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+        .card-hover { transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1); }
+        .card-hover:hover { transform: translateY(-6px); border-color: #FF4D6D; box-shadow: 0 12px 35px -10px rgba(255, 77, 109, 0.3); }
+    </style>
 </head>
-<body class="bg-brandDark text-gray-100 antialiased">
+<body id="top" class="bg-brandDark text-gray-100 antialiased selection:bg-brandPink selection:text-white">
     <header class="fixed top-0 left-0 w-full z-40 glass-nav border-b border-brandBorder/50">
-        <div class="max-w-6xl mx-auto px-4 h-20 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-3">
-                <div class="w-11 h-11 bg-brandCream rounded-2xl flex items-center justify-center"><svg class="w-7 h-7" viewBox="0 0 100 100" fill="none"><path d="M50 12C33.4 12 20 25.4 20 44V73C20 76.5 24 79 27 76.5C30 74 34 74 37 76.5C40 79 44 79 47 76.5C50 74 54 74 57 76.5C60 79 64 79 67 76.5C70 74 74 74 77 76.5C80 79 84 76.5 84 73V44C84 25.4 70.6 12 50 12Z" fill="#F0ECE1" stroke="#2B2B2B" stroke-width="2"/><circle cx="41" cy="38" r="3" fill="#111827"/><circle cx="61" cy="38" r="7.5" fill="#111827"/><circle cx="61" cy="38" r="3" fill="#FFFFFF"/><path d="M44 54C44 64 56 64 56 54V53H44V54Z" fill="#FF4D6D" stroke="#111827" stroke-width="1.5"/></svg></div>
-                <h1 class="font-heading font-extrabold text-lg text-white">POPSY <span class="text-brandPink">ADONIS</span></h1>
-            </a>
-            <nav class="hidden md:flex items-center gap-6 font-medium text-sm text-gray-300">
-                <a href="index.html" class="hover:text-brandPink">Home</a>
-                <a href="about.html" class="text-brandPink font-bold">About</a>
-                <a href="parties.html" class="hover:text-brandPink">Party Tickets</a>
-                <a href="connects.html" class="hover:text-brandPink">Matchmaking</a>
-                <a href="advertise.html" class="hover:text-brandPink">Advertise</a>
-            </nav>
-            <a href="https://wa.me/2347076401108" target="_blank" class="bg-whatsapp text-white text-xs font-bold px-5 py-2.5 rounded-full">Join TV</a>
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3 group"><div class="w-12 h-12 bg-gradient-to-b from-brandCream via-[#D9D3C7] to-[#C8C1B3] rounded-2xl flex items-center justify-center shadow-lg border border-white/30 animate-float"><i data-lucide="ghost" class="w-8 h-8 text-brandDark"></i></div><div><h1 class="font-heading font-extrabold text-lg sm:text-xl leading-none text-white">POPSY <span class="text-brandPink">ADONIS</span></h1><span class="text-[10px] tracking-wider uppercase text-gray-400 font-semibold">WhatsApp TV</span></div></a>
+            <nav class="hidden lg:flex items-center gap-5 font-medium text-sm text-gray-300"><a href="index.html" class="hover:text-brandPink">Home</a><a href="parties.html" class="hover:text-brandPink">EKSU Parties</a><a href="connects.html" class="hover:text-brandPink">Matchmaking</a><a href="index.html#features" class="hover:text-brandPink">Content</a><a href="advertise.html" class="hover:text-brandPink">Ad Plugs</a><a href="about.html" aria-current="page" class="text-brandPink">About</a><a href="contact.html" class="hover:text-brandPink">Contact</a></nav>
+            <a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 bg-whatsapp hover:bg-emerald-600 text-white font-semibold text-sm px-5 py-2.5 rounded-full shadow-lg transition-all"><i class="fa-brands fa-whatsapp"></i><span>Join TV</span></a>
         </div>
     </header>
-    <main class="pt-28 pb-20 max-w-4xl mx-auto px-4">
-        <h1 class="font-heading text-4xl font-extrabold text-white mb-6">About POPSY ADONIS TV</h1>
-        <div class="bg-brandCard border border-brandBorder p-8 rounded-3xl space-y-4 text-gray-300 text-sm leading-relaxed">
-            <p>Popsy Adonis TV is the #1 student lifestyle, nightlife, and entertainment digital platform anchored in Ekiti State University (EKSU).</p>
-            <p>Created with a single mission: to deliver pure daily vibes, non-stop humor, campus party ticket access, and high-converting commercial promo plugs directly to mobile screens.</p>
-        </div>
+
+    <main class="pt-28 pb-20">
+        <section class="py-12">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-12"><span class="text-xs uppercase tracking-widest font-extrabold text-brandPink mb-3 block">Our Story</span><h2 class="font-heading text-4xl sm:text-6xl font-extrabold text-white mb-4">About POPSY ADONIS TV</h2><p class="text-gray-300 text-sm sm:text-base">Your best assured cure to boredom—bringing EKSU entertainment, campus connections, and business promotions together.</p></div>
+                <div class="bg-brandCard/80 border border-brandBorder rounded-3xl p-8 sm:p-12 card-hover">
+                    <div class="grid md:grid-cols-12 gap-8 items-center">
+                        <div class="md:col-span-5 flex flex-col items-center justify-center text-center p-8 bg-brandSurface rounded-2xl border border-brandBorder/50"><div class="w-24 h-24 bg-gradient-to-b from-brandCream to-[#C8C1B3] rounded-full flex items-center justify-center shadow-xl mb-4 border-2 border-white/20 animate-float"><i data-lucide="ghost" class="w-14 h-14 text-brandDark"></i></div><h3 class="font-heading font-extrabold text-2xl text-white mb-1">POPSY ADONIS</h3><p class="text-xs text-brandPink font-semibold uppercase tracking-widest">WhatsApp Television</p></div>
+                        <div class="md:col-span-7 space-y-4"><h3 class="font-heading text-2xl sm:text-3xl font-bold text-white">Entertainment built around EKSU</h3><p class="text-gray-300 text-sm sm:text-base leading-relaxed">Popsy Adonis TV is a student lifestyle and entertainment hub serving the Ekiti State University community. It brings campus nightlife, party information and ticket enquiries, matchmaking connects, viral content, music, and promotional opportunities into one easy-to-reach WhatsApp platform.</p><p class="text-gray-400 text-sm leading-relaxed">Our aim is to make it easier for students to stay informed, find entertainment, and discover local businesses and events, while giving brands a direct way to reach an engaged campus audience.</p><a href="contact.html" class="inline-flex items-center gap-2 bg-brandPink hover:bg-brandPinkHover text-white font-bold px-6 py-3 rounded-xl shadow-lg transition-all"><i data-lucide="message-circle" class="w-4 h-4"></i> Get in touch</a></div>
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6 mt-8"><div class="bg-brandCard border border-brandBorder p-6 rounded-2xl card-hover"><i data-lucide="party-popper" class="w-7 h-7 text-brandPink mb-4"></i><h3 class="font-heading text-lg font-bold text-white mb-2">Campus Entertainment</h3><p class="text-gray-400 text-sm">Party updates, ticket enquiries, nightlife, and campus events.</p></div><div class="bg-brandCard border border-brandBorder p-6 rounded-2xl card-hover"><i data-lucide="heart" class="w-7 h-7 text-pink-400 mb-4"></i><h3 class="font-heading text-lg font-bold text-white mb-2">Community Connections</h3><p class="text-gray-400 text-sm">Private matchmaking enquiries and campus connections.</p></div><div class="bg-brandCard border border-brandBorder p-6 rounded-2xl card-hover"><i data-lucide="megaphone" class="w-7 h-7 text-emerald-400 mb-4"></i><h3 class="font-heading text-lg font-bold text-white mb-2">Brand Promotion</h3><p class="text-gray-400 text-sm">WhatsApp status placements and promotional opportunities for businesses.</p></div></div>
+            </div>
+        </section>
     </main>
-    <footer class="bg-brandSurface border-t border-brandBorder py-8 text-center text-xs text-gray-500">&copy; POPSY ADONIS TV</footer>
-    <script>lucide.createIcons();</script>
+
+    <footer class="bg-brandSurface border-t border-brandBorder/60 py-8 text-center text-xs text-gray-500"><p>&copy; <span id="year"></span> POPSY ADONIS TV. All Rights Reserved.</p><a href="index.html" class="inline-block mt-3 text-brandPink hover:underline">Back to Homepage &rarr;</a></footer>
+    <script>lucide.createIcons(); document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
