@@ -3,15 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EKSU Parties — POPSY ADONIS TV</title>
+    <title>POPSY ADONIS TV — EKSU Party Central & Ticket Sales</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://unpkg.com/lucide@latest"></script>
+
     <script>
-        tailwind.config = { theme: { extend: { colors: { brandDark: '#0B0F19', brandSurface: '#111827', brandCard: '#1F2937', brandBorder: '#374151', brandCream: '#EAE6DF', brandPink: '#FF4D6D', brandPinkHover: '#E63946', whatsapp: '#25D366' }, fontFamily: { sans: ['Inter', 'sans-serif'], heading: ['Plus Jakarta Sans', 'sans-serif'] }, animation: { 'float': 'float 4s ease-in-out infinite', 'pulse-glow': 'pulseGlow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite' }, keyframes: { float: { '0%, 100%': { transform: 'translateY(0px)' }, '50%': { transform: 'translateY(-8px)' } }, pulseGlow: { '0%, 100%': { opacity: 1, filter: 'drop-shadow(0 0 15px rgba(255, 77, 109, 0.6))' }, '50%': { opacity: 0.7, filter: 'drop-shadow(0 0 5px rgba(255, 77, 109, 0.2))' } } } } };
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandDark: '#0B0F19',
+                        brandSurface: '#111827',
+                        brandCard: '#1F2937',
+                        brandBorder: '#374151',
+                        brandCream: '#EAE6DF',
+                        brandPink: '#FF4D6D',
+                        brandPinkHover: '#E63946',
+                        whatsapp: '#25D366'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
     </script>
     <style>
         body { background-color: #0B0F19; color: #F9FAFB; font-family: 'Inter', sans-serif; }
@@ -20,40 +40,87 @@
         .card-hover:hover { transform: translateY(-6px); border-color: #FF4D6D; box-shadow: 0 12px 35px -10px rgba(255, 77, 109, 0.3); }
     </style>
 </head>
-<body id="top" class="bg-brandDark text-gray-100 antialiased selection:bg-brandPink selection:text-white">
+<body class="bg-brandDark text-gray-100 antialiased selection:bg-brandPink selection:text-white">
+
     <header class="fixed top-0 left-0 w-full z-40 glass-nav border-b border-brandBorder/50">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-3 group">
-                <div class="w-12 h-12 bg-gradient-to-b from-brandCream via-[#D9D3C7] to-[#C8C1B3] rounded-2xl flex items-center justify-center shadow-lg border border-white/30 animate-float"><svg class="w-8 h-8" viewBox="0 0 100 100" fill="none"><path d="M50 12C33.4 12 20 25.4 20 44V73C20 76.5 24 79 27 76.5C30 74 34 74 37 76.5C40 79 44 79 47 76.5C50 74 54 74 57 76.5C60 79 64 79 67 76.5C70 74 74 74 77 76.5C80 79 84 76.5 84 73V44C84 25.4 70.6 12 50 12Z" fill="#F0ECE1" stroke="#2B2B2B" stroke-width="2"/><circle cx="41" cy="38" r="3" fill="#111827"/><circle cx="61" cy="38" r="7.5" fill="#111827"/><circle cx="61" cy="38" r="3" fill="#FFFFFF"/><path d="M44 54C44 64 56 64 56 54V53H44V54Z" fill="#FF4D6D"/></svg></div>
-                <div><h1 class="font-heading font-extrabold text-lg sm:text-xl tracking-tight leading-none text-white">POPSY <span class="text-brandPink">ADONIS</span></h1><span class="text-[10px] tracking-wider uppercase text-gray-400 font-semibold">WhatsApp TV</span></div>
+                <div class="w-12 h-12 bg-gradient-to-b from-brandCream via-[#D9D3C7] to-[#C8C1B3] rounded-2xl flex items-center justify-center shadow-lg border border-white/30 animate-float">
+                    <svg class="w-8 h-8" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M50 12C33.4 12 20 25.4 20 44V73C20 76.5 24 79 27 76.5C30 74 34 74 37 76.5C40 79 44 79 47 76.5C50 74 54 74 57 76.5C60 79 64 79 67 76.5C70 74 74 74 77 76.5C80 79 84 76.5 84 73V44C84 25.4 70.6 12 50 12Z" fill="#F0ECE1" stroke="#2B2B2B" stroke-width="2"/>
+                        <circle cx="41" cy="38" r="3" fill="#111827"/>
+                        <circle cx="61" cy="38" r="7.5" fill="#111827"/>
+                        <circle cx="61" cy="38" r="3" fill="#FFFFFF"/>
+                        <path d="M44 54C44 64 56 64 56 54V53H44V54Z" fill="#FF4D6D"/>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="font-heading font-extrabold text-lg sm:text-xl tracking-tight leading-none text-white">POPSY <span class="text-brandPink">ADONIS</span></h1>
+                    <span class="text-[10px] tracking-wider uppercase text-gray-400 font-semibold">WhatsApp TV</span>
+                </div>
             </a>
+
             <nav class="hidden md:flex items-center gap-7 font-medium text-sm text-gray-300">
-                <a href="index.html#home" class="hover:text-brandPink transition-colors">Home</a><a href="parties.html" aria-current="page" class="text-brandPink transition-colors">EKSU Parties</a><a href="connects.html" class="hover:text-brandPink transition-colors">Matchmaking</a><a href="index.html#features" class="hover:text-brandPink transition-colors">Content</a><a href="advertise.html" class="hover:text-brandPink transition-colors">Ad Plugs</a><a href="advertise.html#contact" class="hover:text-brandPink transition-colors">Contact</a>
+                <a href="index.html" class="hover:text-brandPink transition-colors">Home</a>
+                <a href="parties.html" class="text-brandPink font-bold">Party Tickets</a>
+                <a href="connects.html" class="hover:text-brandPink transition-colors">Matchmaking</a>
+                <a href="advertise.html" class="hover:text-brandPink transition-colors">Advertise</a>
             </nav>
-            <div class="flex items-center gap-3"><a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20please%20save%20my%20contact" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 bg-whatsapp hover:bg-emerald-600 text-white font-semibold text-sm px-5 py-2.5 rounded-full shadow-lg transition-all"><i class="fa-brands fa-whatsapp"></i><span>Join TV</span></a><button id="menu-btn" class="md:hidden text-gray-300 hover:text-white p-2" aria-label="Toggle Menu" aria-expanded="false"><i data-lucide="menu" class="w-6 h-6"></i></button></div>
-        </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-brandSurface border-b border-brandBorder px-4 pt-3 pb-6 space-y-3">
-            <a href="index.html#home" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brandCard">Home</a><a href="parties.html" aria-current="page" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-brandPink hover:bg-brandCard">🎉 EKSU Parties</a><a href="connects.html" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brandCard">🔥 Matchmaking & FWB</a><a href="index.html#features" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brandCard">Content</a><a href="advertise.html" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brandCard">Ad Plugs</a><a href="advertise.html#contact" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brandCard">Contact</a>
-            <a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20please%20save%20my%20contact" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 bg-whatsapp text-white font-semibold text-sm px-5 py-3 rounded-xl w-full mt-4"><i class="fa-brands fa-whatsapp"></i><span>Join WhatsApp TV</span></a>
+
+            <a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20want%20to%20buy%20party%20tickets" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 bg-brandPink hover:bg-brandPinkHover text-white font-semibold text-sm px-5 py-2.5 rounded-full shadow-lg transition-all hover:scale-105">
+                <i class="fa-brands fa-whatsapp text-base"></i>
+                <span>Buy Tickets</span>
+            </a>
         </div>
     </header>
-    <main class="pt-24">
-        <section class="py-20 bg-gradient-to-b from-brandDark via-brandSurface/80 to-brandDark border-t border-brandBorder/50 relative overflow-hidden">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-2xl mx-auto mb-14"><div class="inline-flex items-center gap-2 bg-brandPink/15 border border-brandPink/40 px-4 py-1.5 rounded-full text-xs font-bold text-brandPink uppercase tracking-widest mb-3 animate-pulse-glow"><i data-lucide="flame" class="w-4 h-4"></i> Tickets Selling Fast!</div><h2 class="font-heading text-3xl sm:text-5xl font-extrabold text-white mb-4">The Biggest Parties in EKSU</h2><p class="text-gray-300 text-sm sm:text-base">Popsy Adonis organizes the most talked-about, wildest, and packed campus rave parties in Ekiti State University. Secure your pass before tickets sell out completely!</p></div>
-                <div class="grid lg:grid-cols-12 gap-8 items-center">
-                    <div class="lg:col-span-7 bg-brandCard border border-brandPink/30 p-8 rounded-3xl relative overflow-hidden card-hover"><div class="absolute top-4 right-4 bg-red-600 text-white font-extrabold text-[11px] uppercase tracking-wider px-3 py-1 rounded-full animate-bounce">Limited Passes</div><div class="flex items-center gap-3 mb-6"><div class="w-12 h-12 bg-brandPink/15 text-brandPink rounded-2xl flex items-center justify-center"><i data-lucide="party-popper" class="w-6 h-6"></i></div><div><h3 class="font-heading text-2xl font-bold text-white">Next Big EKSU Rave</h3><p class="text-xs text-gray-400">Organized exclusively by Popsy Adonis TV</p></div></div>
-                        <ul class="space-y-3 mb-8 text-sm text-gray-300"><li class="flex items-center gap-3 bg-brandSurface/80 p-3 rounded-xl border border-brandBorder"><i data-lucide="map-pin" class="w-5 h-5 text-brandPink"></i><span><strong>Location:</strong> Premium Venues around EKSU & Ado-Ekiti</span></li><li class="flex items-center gap-3 bg-brandSurface/80 p-3 rounded-xl border border-brandBorder"><i data-lucide="music" class="w-5 h-5 text-emerald-400"></i><span><strong>Vibe:</strong> Top DJs, Hypemen, Free Drinks & Wild Energy</span></li><li class="flex items-center gap-3 bg-brandSurface/80 p-3 rounded-xl border border-brandBorder"><i data-lucide="sparkles" class="w-5 h-5 text-yellow-400"></i><span><strong>Crowd:</strong> Baddest babes, cool guys, & campus celebs</span></li></ul>
-                        <a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20want%20to%20buy%20tickets%20for%20the%20upcoming%20EKSU%20party" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-3 bg-brandPink hover:bg-brandPinkHover text-white font-extrabold text-base px-8 py-4 rounded-2xl shadow-xl transition-all"><i data-lucide="ticket" class="w-5 h-5"></i><span>Reserve Your Ticket on WhatsApp</span></a>
+
+    <main class="pt-28 pb-20">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14">
+                <span class="inline-block bg-red-600/20 text-red-400 border border-red-500/30 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-3 animate-pulse">🔥 Tickets Selling Fast!</span>
+                <h1 class="font-heading text-4xl sm:text-6xl font-extrabold text-white mb-4">EKSU Party Central</h1>
+                <p class="text-gray-300 max-w-2xl mx-auto text-sm sm:text-base">Organizing the wildest, most anticipated student raves, poolside jams, and club takeovers in Ekiti State University. Don’t get locked out at the gate!</p>
+            </div>
+
+            <div class="bg-brandCard border border-brandPink p-8 rounded-3xl mb-12 card-hover">
+                <div class="grid md:grid-cols-12 gap-8 items-center">
+                    <div class="md:col-span-7 space-y-4">
+                        <span class="bg-brandPink text-white text-[11px] font-extrabold px-3 py-1 rounded-full uppercase">Official Main Event</span>
+                        <h2 class="font-heading text-3xl font-extrabold text-white">THE UNTAMED EKSU NIGHT RAVE</h2>
+                        <p class="text-gray-300 text-sm leading-relaxed">Featuring top celebrity DJs, hypemen, live performances, free shot bars, and 100% premium vibes.</p>
+                        <div class="space-y-2 text-xs text-gray-300 pt-2">
+                            <div><i data-lucide="map-pin" class="inline w-4 h-4 text-brandPink"></i> <strong>Location:</strong> Premium Venue, Ado-Ekiti</div>
+                            <div><i data-lucide="clock" class="inline w-4 h-4 text-emerald-400"></i> <strong>Time:</strong> 9:00 PM Till Dawn</div>
+                        </div>
                     </div>
-                    <div class="lg:col-span-5 space-y-5"><div class="bg-brandSurface border border-brandBorder p-6 rounded-2xl"><h4 class="font-heading text-lg font-bold text-white mb-2 flex items-center gap-2"><i data-lucide="zap" class="w-5 h-5 text-yellow-400"></i>Always Sold Out</h4><p class="text-xs sm:text-sm text-gray-400">Ticket passes for Popsy Adonis events sell out in record time. Don't wait till gate prices double!</p></div><div class="bg-brandSurface border border-brandBorder p-6 rounded-2xl"><h4 class="font-heading text-lg font-bold text-white mb-2 flex items-center gap-2"><i data-lucide="shield-check" class="w-5 h-5 text-emerald-400"></i>VIP Table Bookings</h4><p class="text-xs sm:text-sm text-gray-400">Want a dedicated lounge, premium bottles, and bodyguard security? Hit up Popsy directly to lock down your table.</p></div></div>
+                    <div class="md:col-span-5 text-center bg-brandSurface p-6 rounded-2xl border border-brandBorder">
+                        <div class="text-xs uppercase font-bold text-gray-400 mb-1">Pass Price</div>
+                        <div class="text-3xl font-extrabold text-brandPink mb-4">Regular & VIP Available</div>
+                        <a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20want%20to%20reserve%20my%20ticket%20for%20the%20Night%20Rave" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 bg-whatsapp hover:bg-emerald-600 text-white font-bold text-sm px-6 py-3 rounded-2xl shadow-xl transition-all">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                            <span>Reserve Ticket via WhatsApp</span>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </section>
-        <section class="py-16 bg-brandSurface/40 border-y border-brandBorder/40"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-6"><div class="bg-brandCard border border-brandBorder p-8 rounded-3xl card-hover"><i data-lucide="calendar-days" class="w-8 h-8 text-brandPink mb-5"></i><h3 class="font-heading text-xl font-bold text-white mb-2">Weekly Party Calendar</h3><p class="text-gray-400 text-sm">Stay in the loop with scheduled campus events, themed nights, and exclusive guest appearances.</p></div><div class="bg-brandCard border border-brandBorder p-8 rounded-3xl card-hover"><i data-lucide="users" class="w-8 h-8 text-emerald-400 mb-5"></i><h3 class="font-heading text-xl font-bold text-white mb-2">Campus Crowd Vibes</h3><p class="text-gray-400 text-sm">Experience the strongest student energy, premium setups, and unforgettable dance-floor moments.</p></div><div class="bg-brandCard border border-brandBorder p-8 rounded-3xl card-hover"><i data-lucide="badge-check" class="w-8 h-8 text-brandCream mb-5"></i><h3 class="font-heading text-xl font-bold text-white mb-2">Fast Ticket Access</h3><p class="text-gray-400 text-sm">Get direct access to tickets, VIP requests, and sorted guest lists without delays.</p></div></div></section>
+
+            <div class="bg-brandSurface border border-brandBorder p-8 rounded-3xl">
+                <h3 class="font-heading text-2xl font-bold text-white mb-4">VIP Table & Bottle Service</h3>
+                <p class="text-gray-300 text-sm mb-6">Want dedicated seating, premium bottles, and security escort for your crew? Book directly with Popsy Adonis.</p>
+                <a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20want%20to%20book%20a%20VIP%20Table" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-brandCard hover:bg-brandBorder text-white font-semibold px-5 py-3 rounded-2xl border border-brandBorder transition-all">
+                    <i data-lucide="crown" class="w-4 h-4 text-yellow-400"></i>
+                    <span>Inquire VIP Table Pricing</span>
+                </a>
+            </div>
+        </div>
     </main>
-    <footer class="bg-brandSurface border-t border-brandBorder/60 py-10"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left"><div><div class="font-heading font-extrabold text-sm text-white">POPSY ADONIS TV</div><div class="text-[11px] text-gray-500">Your best assured cure to boredom...</div></div><div class="flex items-center gap-5 text-gray-400"><a href="https://wa.me/2347076401108" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a><a href="https://instagram.com/popsyadonis" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a><a href="https://tiktok.com/@popsyadonis" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a><a href="https://x.com/popsyadonis" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a><a href="https://facebook.com/popsyadonis" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a></div><p class="text-xs text-gray-500">&copy; <span id="year"></span> POPSY ADONIS. All Rights Reserved.</p><a href="#top" class="text-xs text-brandPink hover:underline font-medium">Back to Top &uarr;</a></div></footer>
-    <a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20please%20save%20my%20contact" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-50 bg-whatsapp text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-all" aria-label="Chat on WhatsApp"><i class="fa-brands fa-whatsapp text-2xl"></i></a>
-    <script>lucide.createIcons();document.getElementById('year').textContent=new Date().getFullYear();const menuBtn=document.getElementById('menu-btn');const mobileMenu=document.getElementById('mobile-menu');menuBtn.addEventListener('click',()=>{const isOpen=mobileMenu.classList.toggle('hidden')===false;menuBtn.setAttribute('aria-expanded',String(isOpen));});document.querySelectorAll('.mobile-nav-link').forEach(link=>link.addEventListener('click',()=>mobileMenu.classList.add('hidden')));</script>
+
+    <footer class="bg-brandSurface border-t border-brandBorder/60 py-10">
+        <div class="max-w-6xl mx-auto px-4 text-center sm:text-left flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p class="text-xs text-gray-500">&copy; POPSY ADONIS TV. All Rights Reserved.</p>
+            <a href="index.html" class="text-xs text-brandPink hover:underline">Back to Homepage &rarr;</a>
+        </div>
+    </footer>
+    <script>lucide.createIcons();</script>
 </body>
 </html>
