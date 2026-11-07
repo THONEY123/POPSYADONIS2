@@ -103,32 +103,40 @@
 
     <script>
         if (window.lucide) lucide.createIcons();
-        document.getElementById('year').textContent = new Date().getFullYear();
+        const yearEl = document.getElementById('year');
+        if (yearEl) yearEl.textContent = new Date().getFullYear();
 
         const menuButton = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
+
         function setMenuOpen(open) {
+            if (!mobileMenu || !menuButton) return;
             mobileMenu.classList.toggle('hidden', !open);
             menuButton.setAttribute('aria-expanded', String(open));
             menuButton.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
         }
-        menuButton.addEventListener('click', () => setMenuOpen(menuButton.getAttribute('aria-expanded') !== 'true'));
-        mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMenuOpen(false)));
-        document.addEventListener('click', event => {
-            if (!menuButton.contains(event.target) && !mobileMenu.contains(event.target)) setMenuOpen(false);
-        });
-        document.addEventListener('keydown', event => {
-            if (event.key === 'Escape' && menuButton.getAttribute('aria-expanded') === 'true') {
-                setMenuOpen(false);
-                menuButton.focus();
-            }
-        });
-        window.addEventListener('resize', () => { if (window.innerWidth >= 1024) setMenuOpen(false); });
+
+        if (menuButton && mobileMenu) {
+            menuButton.addEventListener('click', () => setMenuOpen(menuButton.getAttribute('aria-expanded') !== 'true'));
+            mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMenuOpen(false)));
+            document.addEventListener('click', event => {
+                if (!menuButton.contains(event.target) && !mobileMenu.contains(event.target)) setMenuOpen(false);
+            });
+            document.addEventListener('keydown', event => {
+                if (event.key === 'Escape' && menuButton.getAttribute('aria-expanded') === 'true') {
+                    setMenuOpen(false);
+                    menuButton.focus();
+                }
+            });
+            window.addEventListener('resize', () => { if (window.innerWidth >= 1024) setMenuOpen(false); });
+        }
 
         const toast = document.getElementById('toast');
         let toastTimer;
         function showToast(message) {
-            document.getElementById('toast-message').textContent = message;
+            if (!toast) return;
+            const messageNode = document.getElementById('toast-message');
+            if (messageNode) messageNode.textContent = message;
             toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
             toast.classList.add('opacity-100', 'translate-y-0');
             clearTimeout(toastTimer);
@@ -137,6 +145,7 @@
                 toast.classList.remove('opacity-100', 'translate-y-0');
             }, 3000);
         }
+
         async function copyNumber() {
             const number = '07076401108';
             try {
@@ -159,7 +168,9 @@
                 showToast('Could not copy. WhatsApp: 07076401108');
             }
         }
-        document.getElementById('copy-number').addEventListener('click', copyNumber);
+
+        const copyButton = document.getElementById('copy-number');
+        if (copyButton) copyButton.addEventListener('click', copyNumber);
     </script>
 </body>
 </html>
