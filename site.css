@@ -1,10 +1,15 @@
-/* Shared visual polish for all pages. */
+/* Shared visual polish and brand assets for secondary pages. */
 :root { color-scheme: dark; }
 html { scroll-padding-top: 6rem; }
 body { background-color: #0B0F19; color: #F9FAFB; font-family: 'Inter', sans-serif; }
 .glass-nav { background: rgba(11, 15, 25, .88); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
-.brand-mark { animation: brand-float 4s ease-in-out infinite; transform-origin: center; }
+
+/* The supplied ghost mark, animated as one complete tile. */
+header .brand-mark { position: relative; flex: 0 0 auto; background: transparent !important; border: 0 !important; box-shadow: none !important; overflow: visible; }
+header .brand-mark > * { visibility: hidden; }
+header .brand-mark::before { content: ""; position: absolute; inset: 0; border-radius: inherit; background: url("brand-logo.svg") center / contain no-repeat; animation: brand-float 4s ease-in-out infinite; transform-origin: center; }
 @keyframes brand-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+
 .nav-link { padding: .65rem .15rem; transition: color .2s ease; white-space: nowrap; }
 .nav-link:hover, .nav-link.active { color: #FF4D6D; }
 .mobile-nav-link { display:block; padding:.7rem .8rem; border-radius:.6rem; color:#D1D5DB; font-size:.95rem; font-weight:500; transition:background-color .2s ease,color .2s ease; }
@@ -18,8 +23,14 @@ body { background-color: #0B0F19; color: #F9FAFB; font-family: 'Inter', sans-ser
 .content-card:hover { transform:translateY(-4px); border-color:rgba(255,77,109,.8); box-shadow:0 12px 32px -15px rgba(255,77,109,.35); }
 .icon-tile { display:flex; width:3.25rem; height:3.25rem; align-items:center; justify-content:center; border-radius:1rem; background:rgba(255,77,109,.1); margin-bottom:1.25rem; }
 .pill { display:inline-flex; align-items:center; gap:.45rem; border:1px solid #374151; border-radius:.6rem; background:#111827; padding:.45rem .7rem; color:#D1D5DB; font-size:.75rem; font-weight:600; }
-.cta-button { display:inline-flex; align-items:center; justify-content:center; gap:.55rem; border-radius:9999px; background:#FF4D6D; padding:.8rem 1.25rem; color:#fff; font-size:.9rem; font-weight:700; text-align:center; transition:transform .2s ease,background-color .2s ease; }
-.cta-button:hover { background:#E63946; transform:translateY(-1px); }
+
+/* Make primary actions easy to spot, consistent in size, and keyboard-accessible. */
+a.bg-brandPink, a.bg-whatsapp, a.bg-white, .cta-button { min-height:2.9rem; align-items:center; justify-content:center; border-radius:9999px; font-weight:700; transition:transform .2s ease, background-color .2s ease, box-shadow .2s ease; }
+a.bg-brandPink, a.bg-whatsapp, a.bg-white { display:inline-flex; gap:.55rem; padding:.8rem 1.3rem; box-shadow:0 8px 22px -12px rgba(0,0,0,.8); }
+a.bg-brandPink:hover, a.bg-whatsapp:hover, a.bg-white:hover, .cta-button:hover { transform:translateY(-2px); }
+a.bg-brandPink:focus-visible, a.bg-whatsapp:focus-visible, a.bg-white:focus-visible, .cta-button:focus-visible, .nav-link:focus-visible, .mobile-nav-link:focus-visible { outline:3px solid #EAE6DF; outline-offset:3px; }
+.cta-button { display:inline-flex; gap:.55rem; border-radius:9999px; background:#FF4D6D; padding:.8rem 1.25rem; color:#fff; font-size:.9rem; text-align:center; }
+.cta-button:hover { background:#E63946; }
 .cta-whatsapp { background:#25D366; }
 .cta-whatsapp:hover { background:#16a34a; }
 .site-footer { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:.65rem 1.5rem; border-top:1px solid rgba(55,65,81,.65); background:#111827; padding:1.6rem 1rem; color:#6B7280; font-size:.75rem; text-align:center; }
