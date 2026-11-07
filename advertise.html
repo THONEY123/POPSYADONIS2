@@ -15,19 +15,11 @@
             theme: {
                 extend: {
                     colors: {
-                        brandDark: '#0B0F19',
-                        brandSurface: '#111827',
-                        brandCard: '#1F2937',
-                        brandBorder: '#374151',
-                        brandCream: '#EAE6DF',
-                        brandPink: '#FF4D6D',
-                        brandPinkHover: '#E63946',
-                        whatsapp: '#25D366'
+                        brandDark: '#0B0F19', brandSurface: '#111827', brandCard: '#1F2937',
+                        brandBorder: '#374151', brandCream: '#EAE6DF', brandPink: '#FF4D6D',
+                        brandPinkHover: '#E63946', whatsapp: '#25D366'
                     },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        heading: ['Plus Jakarta Sans', 'sans-serif']
-                    }
+                    fontFamily: { sans: ['Inter', 'sans-serif'], heading: ['Plus Jakarta Sans', 'sans-serif'] }
                 }
             }
         }
@@ -36,135 +28,45 @@
         body { background-color: #0B0F19; color: #F9FAFB; font-family: 'Inter', sans-serif; }
         .glass-nav { background: rgba(11, 15, 25, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
         .card-hover { transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1); }
-        .card-hover:hover { transform: translateY(-6px); border-color: #25D366; box-shadow: 0 12px 35px -10px rgba(37, 211, 102, 0.25); }
+        .card-hover:hover { transform: translateY(-6px); border-color: #FF4D6D; box-shadow: 0 12px 35px -10px rgba(255, 77, 109, 0.3); }
     </style>
 </head>
 <body class="bg-brandDark text-gray-100 antialiased selection:bg-brandPink selection:text-white">
     <header class="fixed top-0 left-0 w-full z-40 glass-nav border-b border-brandBorder/50">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-brandCream rounded-xl flex items-center justify-center shadow-lg">
-                    <i data-lucide="ghost" class="w-6 h-6 text-brandDark"></i>
-                </div>
-                <h1 class="font-heading font-extrabold text-lg text-white">POPSY <span class="text-brandPink">ADONIS</span></h1>
-            </a>
-
-            <nav class="hidden md:flex items-center gap-7 font-medium text-sm text-gray-300">
-                <a href="index.html" class="hover:text-brandPink">Home</a>
-                <a href="parties.html" class="hover:text-brandPink">Party Tickets</a>
-                <a href="connects.html" class="hover:text-brandPink">Matchmaking</a>
-                <a href="about.html" class="hover:text-brandPink">About</a>
-                <a href="advertise.html" class="text-emerald-400 font-bold">Advertise</a>
-                <a href="contact.html" class="hover:text-brandPink">Contact</a>
-            </nav>
-
-            <div class="flex items-center gap-3">
-                <a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20want%20to%20book%20an%20ad" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 bg-whatsapp hover:bg-emerald-600 text-white text-xs font-bold px-5 py-2.5 rounded-full shadow-lg transition-all hover:scale-105">
-                    <i class="fa-brands fa-whatsapp text-sm"></i>
-                    <span>Book Ad Now</span>
-                </a>
-                <button id="menu-btn" class="md:hidden text-gray-300 hover:text-white focus:outline-none p-2" aria-label="Toggle Menu">
-                    <i data-lucide="menu" class="w-6 h-6"></i>
-                </button>
-            </div>
+            <a href="index.html" class="flex items-center gap-3 group" aria-label="Popsy Adonis TV home"><div class="w-12 h-12 bg-gradient-to-b from-brandCream via-[#D9D3C7] to-[#C8C1B3] rounded-2xl flex items-center justify-center shadow-lg border border-white/30"><i data-lucide="ghost" class="w-8 h-8 text-brandDark"></i></div><div><span class="font-heading font-extrabold text-lg sm:text-xl leading-none text-white">POPSY <span class="text-brandPink">ADONIS</span></span><span class="block text-[10px] tracking-wider uppercase text-gray-400 font-semibold">WhatsApp TV</span></div></a>
+            <nav class="hidden md:flex items-center gap-5 font-medium text-sm text-gray-300" aria-label="Main navigation"><a href="index.html" class="hover:text-brandPink">Home</a><a href="parties.html" class="hover:text-brandPink">EKSU Parties</a><a href="connects.html" class="hover:text-brandPink">Matchmaking</a><a href="about.html" class="hover:text-brandPink">About</a><a href="advertise.html" class="text-brandPink font-bold" aria-current="page">Ad Plugs</a><a href="contact.html" class="hover:text-brandPink">Contact</a></nav>
+            <div class="flex items-center gap-3"><a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20want%20to%20book%20an%20ad" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 bg-whatsapp hover:bg-emerald-600 text-white text-sm font-bold px-5 py-2.5 rounded-full shadow-lg transition-all hover:scale-105"><i class="fa-brands fa-whatsapp"></i><span>Book Ad Now</span></a><button id="menu-btn" class="md:hidden text-gray-300 hover:text-white focus:outline-none p-2" aria-label="Toggle menu" aria-controls="mobile-menu" aria-expanded="false"><i data-lucide="menu" class="w-6 h-6"></i></button></div>
         </div>
-
-        <div id="mobile-menu" class="hidden md:hidden bg-brandSurface border-b border-brandBorder px-4 pt-3 pb-6 space-y-3">
-            <a href="index.html" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brandCard">Home</a>
-            <a href="parties.html" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brandCard">Party Tickets</a>
-            <a href="connects.html" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brandCard">Matchmaking</a>
-            <a href="about.html" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brandCard">About</a>
-            <a href="advertise.html" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-emerald-400 hover:bg-brandCard">Advertise</a>
-            <a href="contact.html" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brandCard">Contact</a>
-            <a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20want%20to%20book%20an%20ad" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 bg-whatsapp text-white text-sm font-bold px-4 py-3 rounded-full">
-                <i class="fa-brands fa-whatsapp text-base"></i>
-                <span>Book Ad Now</span>
-            </a>
-        </div>
+        <nav id="mobile-menu" class="hidden md:hidden bg-brandSurface border-b border-brandBorder px-4 pt-3 pb-6 space-y-3" aria-label="Mobile navigation"><a href="index.html" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brandCard">Home</a><a href="parties.html" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brandCard">EKSU Parties</a><a href="connects.html" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brandCard">Matchmaking</a><a href="about.html" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brandCard">About</a><a href="advertise.html" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-brandPink hover:bg-brandCard" aria-current="page">Ad Plugs</a><a href="contact.html" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-brandCard">Contact</a><a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20want%20to%20book%20an%20ad" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 bg-whatsapp text-white text-sm font-bold px-4 py-3 rounded-full"><i class="fa-brands fa-whatsapp"></i><span>Book Ad Now</span></a></nav>
     </header>
-
-    <main class="pt-28 pb-20">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-14">
-                <span class="text-xs font-extrabold uppercase tracking-widest text-emerald-400 block mb-2">High Conversion Plugs</span>
-                <h1 class="font-heading text-4xl sm:text-6xl font-extrabold text-white mb-4">Advertise With Popsy Adonis TV</h1>
-                <p class="text-gray-300 max-w-2xl mx-auto text-sm sm:text-base">Reach over 50,000+ active EKSU students, party lovers, and fast-acting buyers daily straight on WhatsApp status.</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-6 mb-16">
-                <div class="bg-brandCard border border-brandBorder p-6 rounded-3xl card-hover flex flex-col justify-between">
-                    <div>
-                        <div class="text-xs uppercase font-bold text-gray-400 mb-2">Standard Flyer</div>
-                        <h3 class="font-heading text-xl font-bold text-white mb-2">Single Status Plug</h3>
-                        <p class="text-gray-400 text-xs leading-relaxed mb-4">1x high-definition flyer upload paired with a custom caption and swipe-up contact link.</p>
-                    </div>
-                    <a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20want%20Single%20Status%20Plug" target="_blank" rel="noopener noreferrer" class="w-full text-center bg-brandPink hover:bg-brandPinkHover text-white font-bold px-4 py-3 rounded-full">
-                        Book Now
-                    </a>
-                </div>
-
-                <div class="bg-brandCard border border-brandPink p-6 rounded-3xl card-hover relative flex flex-col justify-between">
-                    <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brandPink text-white text-[10px] font-extrabold uppercase px-3 py-0.5 rounded-full">Most Popular</span>
-                    <div>
-                        <div class="text-xs uppercase font-bold text-brandPink mb-2">3-Day Campaign</div>
-                        <h3 class="font-heading text-xl font-bold text-white mb-2">Triple Exposure Pack</h3>
-                        <p class="text-gray-400 text-xs leading-relaxed mb-4">3 consecutive days of flyer uploads, prime evening slots, and direct group link drops.</p>
-                    </div>
-                    <a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20want%20Triple%20Exposure%20Pack" target="_blank" rel="noopener noreferrer" class="w-full text-center bg-brandPink hover:bg-brandPinkHover text-white font-bold px-4 py-3 rounded-full">
-                        Choose Pack
-                    </a>
-                </div>
-
-                <div class="bg-brandCard border border-brandBorder p-6 rounded-3xl card-hover flex flex-col justify-between">
-                    <div>
-                        <div class="text-xs uppercase font-bold text-emerald-400 mb-2">Full VIP Review</div>
-                        <h3 class="font-heading text-xl font-bold text-white mb-2">Video & Shoutout Review</h3>
-                        <p class="text-gray-400 text-xs leading-relaxed mb-4">Live video unboxing/review by Popsy Adonis + pinned status mention for 24 hours.</p>
-                    </div>
-                    <a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20want%20Video%20Shoutout%20Review" target="_blank" rel="noopener noreferrer" class="w-full text-center bg-whatsapp hover:bg-emerald-600 text-white font-bold px-4 py-3 rounded-full">
-                        Get VIP Review
-                    </a>
-                </div>
-            </div>
-
-            <div id="contact" class="bg-gradient-to-r from-brandSurface to-brandCard border border-brandBorder p-8 rounded-3xl text-center">
-                <h3 class="font-heading text-2xl font-bold text-white mb-2">Need a Custom Advert Plan?</h3>
-                <p class="text-gray-400 text-sm mb-6">Chat with Popsy Adonis directly to discuss weekly or monthly brand retainers.</p>
-                <a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20want%20to%20discuss%20a%20custom%20ad%20retainer" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-whatsapp hover:bg-emerald-600 text-white font-bold px-6 py-3 rounded-full shadow-lg transition-all hover:scale-105">
-                    <i class="fa-brands fa-whatsapp text-lg"></i>
-                    <span>Chat on WhatsApp (07076401108)</span>
-                </a>
-            </div>
+    <main class="pt-28 pb-20"><div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14"><span class="text-xs font-extrabold uppercase tracking-widest text-brandPink block mb-2">High Conversion Plugs</span><h1 class="font-heading text-4xl sm:text-6xl font-extrabold text-white mb-4">Advertise With Popsy Adonis TV</h1><p class="text-gray-300 max-w-2xl mx-auto text-sm sm:text-base">Reach over 50,000+ active EKSU students, party lovers, and fast-acting buyers daily straight on WhatsApp status.</p></div>
+        <div class="grid md:grid-cols-3 gap-6 mb-16">
+            <div class="bg-brandCard border border-brandBorder p-6 rounded-3xl card-hover flex flex-col justify-between"><div><div class="text-xs uppercase font-bold text-gray-400 mb-2">Standard Flyer</div><h2 class="font-heading text-xl font-bold text-white mb-2">Single Status Plug</h2><p class="text-gray-400 text-xs leading-relaxed mb-4">1x high-definition flyer upload paired with a custom caption and contact link.</p></div><a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20want%20Single%20Status%20Plug" target="_blank" rel="noopener noreferrer" class="w-full text-center bg-brandPink hover:bg-brandPinkHover text-white font-bold px-4 py-3 rounded-full">Book Now</a></div>
+            <div class="bg-brandCard border border-brandPink p-6 rounded-3xl card-hover relative flex flex-col justify-between"><span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brandPink text-white text-[10px] font-extrabold uppercase px-3 py-0.5 rounded-full">Most Popular</span><div><div class="text-xs uppercase font-bold text-brandPink mb-2">3-Day Campaign</div><h2 class="font-heading text-xl font-bold text-white mb-2">Triple Exposure Pack</h2><p class="text-gray-400 text-xs leading-relaxed mb-4">3 consecutive days of flyer uploads, prime evening slots, and direct group link drops.</p></div><a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20want%20Triple%20Exposure%20Pack" target="_blank" rel="noopener noreferrer" class="w-full text-center bg-brandPink hover:bg-brandPinkHover text-white font-bold px-4 py-3 rounded-full">Choose Pack</a></div>
+            <div class="bg-brandCard border border-brandBorder p-6 rounded-3xl card-hover flex flex-col justify-between"><div><div class="text-xs uppercase font-bold text-brandPink mb-2">Full VIP Review</div><h2 class="font-heading text-xl font-bold text-white mb-2">Video & Shoutout Review</h2><p class="text-gray-400 text-xs leading-relaxed mb-4">Live video unboxing/review by Popsy Adonis + pinned status mention for 24 hours.</p></div><a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20want%20Video%20Shoutout%20Review" target="_blank" rel="noopener noreferrer" class="w-full text-center bg-whatsapp hover:bg-emerald-600 text-white font-bold px-4 py-3 rounded-full">Get VIP Review</a></div>
         </div>
-    </main>
-
-    <footer class="bg-brandSurface border-t border-brandBorder/60 py-10">
-        <div class="max-w-6xl mx-auto px-4 text-center sm:text-left flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p class="text-xs text-gray-500">&copy; <span id="year"></span> POPSY ADONIS TV. All Rights Reserved.</p>
-            <a href="index.html" class="text-xs text-brandPink hover:underline">Back to Homepage &rarr;</a>
-        </div>
-    </footer>
-
+        <section id="contact" class="bg-gradient-to-r from-brandSurface to-brandCard border border-brandBorder p-8 rounded-3xl text-center"><h2 class="font-heading text-2xl font-bold text-white mb-2">Need a Custom Advert Plan?</h2><p class="text-gray-400 text-sm mb-6">Chat with Popsy Adonis directly to discuss weekly or monthly brand retainers.</p><a href="https://wa.me/2347076401108?text=Hello%20Popsy%20Adonis%2C%20I%20want%20to%20discuss%20a%20custom%20ad%20retainer" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-whatsapp hover:bg-emerald-600 text-white font-bold px-6 py-3 rounded-full shadow-lg transition-all hover:scale-105"><i class="fa-brands fa-whatsapp"></i><span>Chat on WhatsApp (07076401108)</span></a></section>
+    </div></main>
+    <footer class="bg-brandSurface border-t border-brandBorder/60 py-8 text-center text-xs text-gray-500"><p>&copy; <span id="year"></span> POPSY ADONIS TV. All Rights Reserved.</p><a href="index.html" class="text-brandPink hover:underline mt-2 inline-block">Back to Homepage</a></footer>
     <script>
         lucide.createIcons();
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-
-        if (menuBtn && mobileMenu) {
-            menuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-        }
-
-        mobileNavLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (mobileMenu) mobileMenu.classList.add('hidden');
-            });
-        });
-
         const year = document.getElementById('year');
         if (year) year.textContent = new Date().getFullYear();
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+                menuBtn.setAttribute('aria-expanded', String(!expanded));
+                mobileMenu.classList.toggle('hidden');
+            });
+            mobileMenu.querySelectorAll('.mobile-nav-link').forEach(link => link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuBtn.setAttribute('aria-expanded', 'false');
+            }));
+        }
     </script>
 </body>
 </html>
