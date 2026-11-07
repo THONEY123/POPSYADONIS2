@@ -17,12 +17,8 @@
             theme: { extend: {
                 colors: { brandDark: '#0B0F19', brandSurface: '#111827', brandCard: '#1F2937', brandBorder: '#374151', brandCream: '#EAE6DF', brandPink: '#FF4D6D', brandPinkHover: '#E63946', whatsapp: '#25D366' },
                 fontFamily: { sans: ['Inter', 'sans-serif'], heading: ['Plus Jakarta Sans', 'sans-serif'] },
-                keyframes: {
-                    float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } },
-                    orbit: { '0%': { transform: 'rotate(0deg)' }, '100%': { transform: 'rotate(360deg)' } },
-                    glow: { '0%, 100%': { opacity: '.72', transform: 'scale(.98)' }, '50%': { opacity: '1', transform: 'scale(1.02)' } }
-                },
-                animation: { 'float': 'float 4s ease-in-out infinite', 'orbit': 'orbit 22s linear infinite', 'glow': 'glow 5s ease-in-out infinite' }
+                keyframes: { float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-13px)' } }, ghostGlow: { '0%, 100%': { filter: 'drop-shadow(0 0 18px rgba(221,145,255,.32))' }, '50%': { filter: 'drop-shadow(0 0 34px rgba(221,145,255,.62))' } } },
+                animation: { 'float': 'float 4s ease-in-out infinite', 'ghost-glow': 'ghostGlow 4s ease-in-out infinite' }
             } }
         };
     </script>
@@ -30,8 +26,9 @@
         :root { color-scheme: dark; }
         body { background: #0B0F19; color: #F9FAFB; font-family: 'Inter', sans-serif; }
         .glass-nav { background: rgba(11,15,25,.82); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
-        .hero-backdrop { background: radial-gradient(ellipse at 76% 48%, rgba(119,42,137,.20), transparent 34%), radial-gradient(ellipse at 10% 12%, rgba(255,77,109,.08), transparent 35%), #090710; }
+        .hero-backdrop { background: radial-gradient(ellipse at 75% 48%, rgba(119,42,137,.16), transparent 34%), radial-gradient(ellipse at 10% 12%, rgba(255,77,109,.08), transparent 35%), #090710; }
         .hero-title-glow { text-shadow: 0 0 12px rgba(238,207,255,.55), 0 0 42px rgba(197,89,255,.28); }
+        .ghost-mascot { animation: float 4s ease-in-out infinite, ghostGlow 4s ease-in-out infinite; }
         .card-hover { transition: transform .35s cubic-bezier(.4,0,.2,1), border-color .35s ease, box-shadow .35s ease; }
         .card-hover:hover { transform: translateY(-6px); border-color: #FF4D6D; box-shadow: 0 12px 35px -10px rgba(255,77,109,.3); }
         .reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
@@ -40,8 +37,6 @@
         .button-sheen { position: relative; overflow: hidden; isolation: isolate; }
         .button-sheen::after { content: ''; position: absolute; inset: 0 auto 0 -70%; width: 42%; transform: skewX(-20deg); background: linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent); transition: left .65s ease; z-index: -1; }
         .button-sheen:hover::after { left: 130%; }
-        .orbit-ring { border: 1px solid rgba(226,166,255,.18); box-shadow: 0 0 32px rgba(199,99,255,.12), inset 0 0 30px rgba(199,99,255,.06); }
-        .orbit-dot { box-shadow: 0 0 12px 3px rgba(239,167,255,.75); }
         .scroll-progress { transform-origin: left; transform: scaleX(0); }
         @media (prefers-reduced-motion: reduce) { *,*::before,*::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } .reveal { opacity: 1; transform: none; } }
     </style>
@@ -53,7 +48,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[76px] flex items-center justify-between gap-5">
             <a href="index.html" class="flex items-center gap-3 group shrink-0" aria-label="Popsy Adonis TV home">
                 <div class="w-11 h-11 bg-gradient-to-b from-brandCream via-[#D9D3C7] to-[#C8C1B3] rounded-2xl flex items-center justify-center shadow-lg border border-white/30 group-hover:scale-105 transition-transform animate-float">
-                    <svg class="w-8 h-8 ghost-logo" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <svg class="w-8 h-8" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <defs><linearGradient id="miniGhost" x1="50" y1="10" x2="50" y2="85" gradientUnits="userSpaceOnUse"><stop stop-color="#FFF" stop-opacity=".99"/><stop offset=".62" stop-color="#F4F0E9" stop-opacity=".92"/><stop offset="1" stop-color="#C8C1B3" stop-opacity=".84"/></linearGradient></defs>
                         <path d="M50 12C33.4 12 20 25.4 20 44V73C20 76.5 24 79 27 76.5C30 74 34 74 37 76.5C40 79 44 79 47 76.5C50 74 54 74 57 76.5C60 79 64 79 67 76.5C70 74 74 74 77 76.5C80 79 84 76.5 84 73V44C84 25.4 70.6 12 50 12Z" fill="url(#miniGhost)" stroke="#2B2B2B" stroke-width="2"/><circle cx="41" cy="38" r="3" fill="#111827"/><circle cx="61" cy="38" r="7.5" fill="#111827"/><circle cx="61" cy="38" r="3" fill="#FFF"/><path d="M37 49C37 49 44 56 50 56C56 56 63 49 63 49" stroke="#111827" stroke-width="2" stroke-linecap="round"/><path d="M44 54C44 64 56 64 56 54V53H44V54Z" fill="#FF4D6D" stroke="#111827" stroke-width="1.5"/>
                     </svg>
@@ -89,44 +84,38 @@
                     <div class="reveal reveal-delay-3 mt-7 flex flex-wrap items-center justify-center lg:justify-start gap-x-5 gap-y-2 text-xs text-gray-400"><span class="inline-flex items-center gap-2"><i data-lucide="zap" class="w-4 h-4 text-yellow-300"></i>Campus energy, all day</span><span class="hidden sm:inline text-gray-700">|</span><span class="inline-flex items-center gap-2"><i data-lucide="sparkles" class="w-4 h-4 text-fuchsia-300"></i>Entertainment, connects & more</span></div>
                 </div>
 
-                <div class="reveal reveal-delay-2 relative mx-auto w-full max-w-[500px] aspect-square flex items-center justify-center" aria-label="Popsy Adonis TV floating ghost logo">
-                    <div class="absolute inset-[8%] rounded-full orbit-ring animate-glow"></div>
-                    <div class="absolute inset-[14%] rounded-full border border-fuchsia-200/10"></div>
-                    <div class="absolute inset-[8%] rounded-full animate-orbit motion-reduce:animate-none" aria-hidden="true"><span class="orbit-dot absolute top-[9%] left-[12%] w-2 h-2 rounded-full bg-fuchsia-200"></span></div>
-                    <div class="relative w-[66%] aspect-square rounded-full bg-black border border-white/10 shadow-[0_0_0_14px_rgba(193,102,230,.055),0_0_75px_rgba(192,91,255,.24)] flex flex-col items-center justify-center animate-float overflow-hidden">
-                        <div class="absolute inset-0 rounded-full bg-gradient-to-br from-fuchsia-900/20 via-transparent to-brandPink/10 pointer-events-none"></div>
-                        <div class="relative z-10 flex flex-col items-center">
-                            <span class="font-heading font-extrabold text-[clamp(2rem,6vw,4.2rem)] tracking-[.08em] leading-none text-fuchsia-200 hero-title-glow -rotate-6">POPSY</span>
-                            <div class="my-2 sm:my-3 w-[38%] aspect-square flex items-center justify-center rounded-full bg-gradient-to-br from-fuchsia-500 via-purple-700 to-fuchsia-950 shadow-[0_0_28px_rgba(217,70,239,.5)] border border-fuchsia-200/30">
-                                <svg class="w-[72%] h-[72%] ghost-logo" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="heroGhost" x1="20" y1="12" x2="75" y2="90" gradientUnits="userSpaceOnUse"><stop stop-color="#FFF"/><stop offset=".55" stop-color="#F2EDE4"/><stop offset="1" stop-color="#B9B0A6"/></linearGradient></defs><path d="M50 12C33.4 12 20 25.4 20 44V73C20 76.5 24 79 27 76.5C30 74 34 74 37 76.5C40 79 44 79 47 76.5C50 74 54 74 57 76.5C60 79 64 79 67 76.5C70 74 74 74 77 76.5C80 79 84 76.5 84 73V44C84 25.4 70.6 12 50 12Z" fill="url(#heroGhost)" stroke="#2B2B2B" stroke-width="2.5"/><path d="M21 44C13 40 9 47 13 54C17 59 23 54 21 44Z" fill="url(#heroGhost)" stroke="#2B2B2B" stroke-width="2"/><path d="M79 44C87 40 91 47 87 54C83 59 77 54 79 44Z" fill="url(#heroGhost)" stroke="#2B2B2B" stroke-width="2"/><circle cx="41" cy="38" r="3" fill="#111827"/><circle cx="61" cy="38" r="7.5" fill="#111827"/><circle cx="61" cy="38" r="3" fill="#FFF"/><path d="M37 49C37 49 44 56 50 56C56 56 63 49 63 49" stroke="#111827" stroke-width="2.4" stroke-linecap="round"/><path d="M44 54C44 64 56 64 56 54V53H44V54Z" fill="#FF4D6D" stroke="#111827" stroke-width="1.5"/></svg>
-                            </div>
-                            <span class="font-heading font-extrabold text-[clamp(2rem,6vw,4.2rem)] tracking-[.08em] leading-none text-fuchsia-200 hero-title-glow">TV</span>
-                        </div>
-                    </div>
-                    <div class="absolute bottom-[13%] left-[10%] hidden sm:flex items-center gap-2 px-3 py-2 rounded-full border border-white/10 bg-brandDark/75 backdrop-blur text-[10px] text-gray-300 shadow-lg"><span class="w-1.5 h-1.5 rounded-full bg-whatsapp animate-pulse"></span>GOOD VIBES, ON STATUS</div>
+                <!-- Updated hero art: no circular badge, rings, orbit, or disc. Just the floating ghost. -->
+                <div class="reveal reveal-delay-2 relative mx-auto w-full max-w-[500px] min-h-[360px] sm:min-h-[470px] flex items-center justify-center" aria-label="Floating Popsy Adonis ghost mascot">
+                    <div class="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,rgba(192,91,255,.14),transparent_58%)]"></div>
+                    <svg class="ghost-mascot relative z-10 w-[62%] max-w-[285px] h-auto overflow-visible" viewBox="0 0 220 260" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Popsy Adonis floating ghost mascot">
+                        <defs>
+                            <linearGradient id="largeGhostBody" x1="74" y1="28" x2="151" y2="222" gradientUnits="userSpaceOnUse"><stop stop-color="#FFFFFF"/><stop offset=".5" stop-color="#F4F0E9"/><stop offset="1" stop-color="#C8C1B3"/></linearGradient>
+                            <filter id="largeGhostGlow" x="-45%" y="-35%" width="190%" height="180%"><feGaussianBlur stdDeviation="13"/></filter>
+                        </defs>
+                        <path d="M110 33C69 33 39 64 39 105V188C39 195 47 200 54 195L68 185L84 196L100 185L116 196L132 185L148 196L164 185L178 195C185 200 193 195 193 188V105C193 64 159 33 110 33Z" fill="#D994FF" opacity=".23" filter="url(#largeGhostGlow)"/>
+                        <path d="M110 27C68 27 37 60 37 103V188C37 196 46 201 53 196L68 185L84 196L100 185L116 196L132 185L148 196L164 185L179 196C186 201 195 196 195 188V103C195 60 161 27 110 27Z" fill="url(#largeGhostBody)" stroke="#EADCF1" stroke-opacity=".78" stroke-width="3"/>
+                        <path d="M39 101C21 90 12 103 20 119C27 132 42 125 39 101Z" fill="url(#largeGhostBody)" stroke="#EADCF1" stroke-opacity=".7" stroke-width="2.5"/>
+                        <path d="M193 101C211 90 220 103 212 119C205 132 190 125 193 101Z" fill="url(#largeGhostBody)" stroke="#EADCF1" stroke-opacity=".7" stroke-width="2.5"/>
+                        <ellipse cx="84" cy="101" rx="7" ry="10" fill="#15111C"/><ellipse cx="139" cy="101" rx="10" ry="14" fill="#15111C"/><circle cx="142" cy="97" r="4" fill="#FFF"/>
+                        <path d="M77 128C86 140 99 146 111 146C124 146 138 139 145 128" stroke="#15111C" stroke-width="6" stroke-linecap="round"/>
+                        <path d="M96 143C96 163 127 163 127 143V140H96V143Z" fill="#FF4D6D" stroke="#15111C" stroke-width="2.5"/>
+                        <path d="M69 68C82 52 98 47 111 47" stroke="#FFF" stroke-opacity=".45" stroke-width="4" stroke-linecap="round"/>
+                    </svg>
+                    <span class="absolute bottom-[9%] left-1/2 -translate-x-1/2 whitespace-nowrap inline-flex items-center gap-2 px-3 py-2 rounded-full border border-white/10 bg-brandDark/75 backdrop-blur text-[10px] tracking-wide text-gray-300 shadow-lg"><span class="w-1.5 h-1.5 rounded-full bg-whatsapp animate-pulse"></span>GOOD VIBES, ON STATUS</span>
                 </div>
             </div>
             <div class="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-brandDark to-transparent pointer-events-none"></div>
         </section>
 
-        <section class="py-8 border-b border-brandBorder/50 bg-brandDark">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-5">
-                <div class="reveal bg-brandSurface/70 border border-brandBorder/70 rounded-2xl p-4 sm:p-5 text-center card-hover"><div class="font-heading font-extrabold text-2xl sm:text-3xl text-white">50K+</div><div class="text-xs sm:text-sm text-gray-400 mt-1">Daily EKSU Views</div></div>
-                <div class="reveal reveal-delay-1 bg-brandSurface/70 border border-brandBorder/70 rounded-2xl p-4 sm:p-5 text-center card-hover"><div class="font-heading font-extrabold text-2xl sm:text-3xl text-brandPink">#1</div><div class="text-xs sm:text-sm text-gray-400 mt-1">Party Host in EKSU</div></div>
-                <div class="reveal reveal-delay-2 bg-brandSurface/70 border border-brandBorder/70 rounded-2xl p-4 sm:p-5 text-center card-hover"><div class="font-heading font-extrabold text-2xl sm:text-3xl text-emerald-400">100%</div><div class="text-xs sm:text-sm text-gray-400 mt-1">Discreet Connects</div></div>
-                <div class="reveal reveal-delay-3 bg-brandSurface/70 border border-brandBorder/70 rounded-2xl p-4 sm:p-5 text-center card-hover"><div class="font-heading font-extrabold text-2xl sm:text-3xl text-white">24/7</div><div class="text-xs sm:text-sm text-gray-400 mt-1">Non-stop Entertainment</div></div>
-            </div>
-        </section>
+        <section class="py-8 border-b border-brandBorder/50 bg-brandDark"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-5">
+            <div class="reveal bg-brandSurface/70 border border-brandBorder/70 rounded-2xl p-4 sm:p-5 text-center card-hover"><div class="font-heading font-extrabold text-2xl sm:text-3xl text-white">50K+</div><div class="text-xs sm:text-sm text-gray-400 mt-1">Daily EKSU Views</div></div><div class="reveal reveal-delay-1 bg-brandSurface/70 border border-brandBorder/70 rounded-2xl p-4 sm:p-5 text-center card-hover"><div class="font-heading font-extrabold text-2xl sm:text-3xl text-brandPink">#1</div><div class="text-xs sm:text-sm text-gray-400 mt-1">Party Host in EKSU</div></div><div class="reveal reveal-delay-2 bg-brandSurface/70 border border-brandBorder/70 rounded-2xl p-4 sm:p-5 text-center card-hover"><div class="font-heading font-extrabold text-2xl sm:text-3xl text-emerald-400">100%</div><div class="text-xs sm:text-sm text-gray-400 mt-1">Discreet Connects</div></div><div class="reveal reveal-delay-3 bg-brandSurface/70 border border-brandBorder/70 rounded-2xl p-4 sm:p-5 text-center card-hover"><div class="font-heading font-extrabold text-2xl sm:text-3xl text-white">24/7</div><div class="text-xs sm:text-sm text-gray-400 mt-1">Non-stop Entertainment</div></div>
+        </div></section>
 
-        <section id="features" class="py-16 sm:py-20 bg-brandSurface/40 border-y border-brandBorder/40">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="text-center max-w-xl mx-auto mb-12 reveal"><span class="text-xs uppercase tracking-widest font-bold text-brandPink">Your campus, your vibe</span><h2 class="font-heading text-3xl sm:text-4xl font-bold text-white mt-2 mb-3">Explore Popsy Adonis TV</h2><p class="text-gray-400 text-sm sm:text-base">Choose a page to find the service you need.</p></div>
-                <div class="grid md:grid-cols-3 gap-6">
-                    <a href="parties.html" class="reveal bg-brandCard border border-brandBorder p-8 rounded-3xl card-hover block"><div class="w-14 h-14 bg-brandPink/10 text-brandPink rounded-2xl flex items-center justify-center mb-6"><i data-lucide="party-popper" class="w-7 h-7"></i></div><h3 class="font-heading text-xl font-bold text-white mb-2">EKSU Parties & Tickets</h3><p class="text-gray-400 text-sm leading-relaxed mb-5">See party details, ticket information, VIP bookings, and reserve directly through WhatsApp.</p><span class="inline-flex items-center gap-2 text-sm font-semibold text-brandPink">Visit Parties page <i data-lucide="arrow-right" class="w-4 h-4"></i></span></a>
-                    <a href="connects.html" class="reveal reveal-delay-1 bg-brandCard border border-brandBorder p-8 rounded-3xl card-hover block"><div class="w-14 h-14 bg-pink-500/10 text-pink-400 rounded-2xl flex items-center justify-center mb-6"><i data-lucide="heart" class="w-7 h-7"></i></div><h3 class="font-heading text-xl font-bold text-white mb-2">Matchmaking & Campus Connects</h3><p class="text-gray-400 text-sm leading-relaxed mb-5">Learn about private campus connections and contact Popsy Adonis directly.</p><span class="inline-flex items-center gap-2 text-sm font-semibold text-pink-400">Visit Matchmaking page <i data-lucide="arrow-right" class="w-4 h-4"></i></span></a>
-                    <a href="advertise.html" class="reveal reveal-delay-2 bg-brandCard border border-brandBorder p-8 rounded-3xl card-hover block"><div class="w-14 h-14 bg-emerald-500/10 text-emerald-400 rounded-2xl flex items-center justify-center mb-6"><i data-lucide="trending-up" class="w-7 h-7"></i></div><h3 class="font-heading text-xl font-bold text-white mb-2">Content & Ad Plugs</h3><p class="text-gray-400 text-sm leading-relaxed mb-5">Explore promotional options and request an advertising placement for your brand.</p><span class="inline-flex items-center gap-2 text-sm font-semibold text-emerald-400">Visit Ads page <i data-lucide="arrow-right" class="w-4 h-4"></i></span></a>
-                </div>
-            </div>
-        </section>
+        <section id="features" class="py-16 sm:py-20 bg-brandSurface/40 border-y border-brandBorder/40"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="text-center max-w-xl mx-auto mb-12 reveal"><span class="text-xs uppercase tracking-widest font-bold text-brandPink">Your campus, your vibe</span><h2 class="font-heading text-3xl sm:text-4xl font-bold text-white mt-2 mb-3">Explore Popsy Adonis TV</h2><p class="text-gray-400 text-sm sm:text-base">Choose a page to find the service you need.</p></div><div class="grid md:grid-cols-3 gap-6">
+            <a href="parties.html" class="reveal bg-brandCard border border-brandBorder p-8 rounded-3xl card-hover block"><div class="w-14 h-14 bg-brandPink/10 text-brandPink rounded-2xl flex items-center justify-center mb-6"><i data-lucide="party-popper" class="w-7 h-7"></i></div><h3 class="font-heading text-xl font-bold text-white mb-2">EKSU Parties & Tickets</h3><p class="text-gray-400 text-sm leading-relaxed mb-5">See party details, ticket information, VIP bookings, and reserve directly through WhatsApp.</p><span class="inline-flex items-center gap-2 text-sm font-semibold text-brandPink">Visit Parties page <i data-lucide="arrow-right" class="w-4 h-4"></i></span></a>
+            <a href="connects.html" class="reveal reveal-delay-1 bg-brandCard border border-brandBorder p-8 rounded-3xl card-hover block"><div class="w-14 h-14 bg-pink-500/10 text-pink-400 rounded-2xl flex items-center justify-center mb-6"><i data-lucide="heart" class="w-7 h-7"></i></div><h3 class="font-heading text-xl font-bold text-white mb-2">Matchmaking & Campus Connects</h3><p class="text-gray-400 text-sm leading-relaxed mb-5">Learn about private campus connections and contact Popsy Adonis directly.</p><span class="inline-flex items-center gap-2 text-sm font-semibold text-pink-400">Visit Matchmaking page <i data-lucide="arrow-right" class="w-4 h-4"></i></span></a>
+            <a href="advertise.html" class="reveal reveal-delay-2 bg-brandCard border border-brandBorder p-8 rounded-3xl card-hover block"><div class="w-14 h-14 bg-emerald-500/10 text-emerald-400 rounded-2xl flex items-center justify-center mb-6"><i data-lucide="trending-up" class="w-7 h-7"></i></div><h3 class="font-heading text-xl font-bold text-white mb-2">Content & Ad Plugs</h3><p class="text-gray-400 text-sm leading-relaxed mb-5">Explore promotional options and request an advertising placement for your brand.</p><span class="inline-flex items-center gap-2 text-sm font-semibold text-emerald-400">Visit Ads page <i data-lucide="arrow-right" class="w-4 h-4"></i></span></a>
+        </div></div></section>
 
         <section class="py-16 sm:py-20"><div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8"><div class="reveal bg-brandCard/80 border border-brandBorder rounded-3xl p-8 sm:p-12"><div class="grid md:grid-cols-12 gap-8 items-center"><div class="md:col-span-5 flex flex-col items-center justify-center text-center p-6 bg-brandSurface rounded-2xl border border-brandBorder/50"><div class="w-24 h-24 bg-gradient-to-b from-brandCream to-[#C8C1B3] rounded-full flex items-center justify-center shadow-xl mb-4 border-2 border-white/20 animate-float"><svg class="w-16 h-16 ghost-logo" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M50 12C33.4 12 20 25.4 20 44V73C20 76.5 24 79 27 76.5C30 74 34 74 37 76.5C40 79 44 79 47 76.5C50 74 54 74 57 76.5C60 79 64 79 67 76.5C70 74 74 74 77 76.5C80 79 84 76.5 84 73V44C84 25.4 70.6 12 50 12Z" fill="#F0ECE1" fill-opacity=".92" stroke="#2B2B2B" stroke-width="2"/><circle cx="41" cy="38" r="3" fill="#111827"/><circle cx="61" cy="38" r="7.5" fill="#111827"/><circle cx="61" cy="38" r="3" fill="#FFF"/><path d="M37 49C37 49 44 56 50 56C56 56 63 49 63 49" stroke="#111827" stroke-width="2"/><path d="M44 54C44 64 56 64 56 54V53H44V54Z" fill="#FF4D6D" stroke="#111827" stroke-width="1.5"/></svg></div><h3 class="font-heading font-extrabold text-2xl text-white mb-1">POPSY ADONIS</h3><p class="text-xs text-brandPink font-semibold uppercase tracking-widest">WhatsApp Television</p></div><div class="md:col-span-7 space-y-4"><h2 class="font-heading text-2xl sm:text-3xl font-bold text-white">Why Popsy Adonis TV?</h2><p class="text-gray-300 text-sm sm:text-base leading-relaxed">Popsy Adonis TV connects EKSU students with campus nightlife, entertainment, matchmaking, and business promotions—all through an easy-to-reach WhatsApp hub.</p><p class="text-gray-400 text-sm leading-relaxed">Discover our story and get in touch through the dedicated pages.</p><div class="flex flex-wrap gap-3 pt-2"><a href="about.html" class="text-xs font-semibold text-gray-300 bg-brandSurface px-3 py-1.5 rounded-lg border border-brandBorder hover:border-brandPink transition-colors">About Us</a><a href="contact.html" class="text-xs font-semibold text-gray-300 bg-brandSurface px-3 py-1.5 rounded-lg border border-brandBorder hover:border-brandPink transition-colors">Contact Us</a></div></div></div></div></div></section>
     </main>
@@ -144,10 +133,7 @@
         const updateProgress = () => { const maxScroll = document.documentElement.scrollHeight - window.innerHeight; progress.style.transform = `scaleX(${maxScroll > 0 ? window.scrollY / maxScroll : 0})`; };
         window.addEventListener('scroll', updateProgress, { passive: true }); updateProgress();
         const revealItems = document.querySelectorAll('.reveal');
-        if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            const revealObserver = new IntersectionObserver((entries, observer) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); } }); }, { threshold: 0.12 });
-            revealItems.forEach(item => revealObserver.observe(item));
-        } else { revealItems.forEach(item => item.classList.add('is-visible')); }
+        if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) { const observer = new IntersectionObserver((entries, instance) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); instance.unobserve(entry.target); } }); }, { threshold: .12 }); revealItems.forEach(item => observer.observe(item)); } else { revealItems.forEach(item => item.classList.add('is-visible')); }
     </script>
 </body>
 </html>
